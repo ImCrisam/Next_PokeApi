@@ -1,4 +1,4 @@
-"use client";
+
 
 import { useState, useMemo } from "react";
 import {
@@ -62,7 +62,7 @@ export default function CustomPokemonTable() {
   if (error) return <p>{error}</p>;
 
   return (
-    <Paper sx={{ minWidth: "100vw", minHeight: "100vh", overflow: "hidden" }}>
+    <Paper sx={{ minWidth: "100%", minHeight: "100%", overflow: "hidden" }}>
       <TableContainer sx={{ minHeight: "calc(100vh - 64px)", maxHeight: "calc(100vh - 64px)" }}>
         <Table stickyHeader>
           <TableHead>

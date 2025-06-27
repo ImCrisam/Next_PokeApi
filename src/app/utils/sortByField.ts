@@ -1,4 +1,4 @@
-import { Pokemon } from "../models/Pokemon";
+import { Pokemon } from "../types/Pokemon";
 
 export type SortOrder = "asc" | "desc";
 export type SortField = keyof Pokemon;
