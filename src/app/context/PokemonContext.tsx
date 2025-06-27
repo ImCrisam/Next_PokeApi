@@ -1,12 +1,13 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { Pokemon } from "../models/Pokemon";
 import { fetchAllPokemons } from "../services/pokemonService";
+import { Pokemon } from "../types/Pokemon";
 
 type PokemonContextType = {
   pokemons: Pokemon[];
   isLoading: boolean;
+  types: string[];
   error: string | null;
 };
 
@@ -17,6 +18,7 @@ type PokemonProviderProps = {
 };
 
 export function PokemonProvider({ children }: PokemonProviderProps) {
+  const [types, setTypes] = useState<string[]>([]);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -26,6 +28,11 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
       try {
         const data = await fetchAllPokemons();
         setPokemons(data);
+        const allTypes = new Set<string>();
+        data.forEach((p) => {
+          p.types.forEach((t) => allTypes.add(t.type.name));
+        });
+        setTypes(Array.from(allTypes).sort());
       } catch (err) {
         setError("Error al cargar los Pokémon.");
       } finally {
@@ -37,9 +44,9 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
   }, []);
 
   return (
-    <PokemonContext.Provider value={{ pokemons, isLoading, error }}>
-    {children}
-  </PokemonContext.Provider>
+    <PokemonContext.Provider value={{ pokemons, types, isLoading, error }}>
+      {children}
+    </PokemonContext.Provider>
   );
 }
 

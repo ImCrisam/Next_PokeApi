@@ -1,0 +1,101 @@
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "synchronize",
+                "url": "https://pokeapi.co/api/v2/ability/28/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        }
+    ],
+    "base_experience": 270,
+    "cries": {
+        "latest": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/151.ogg",
+        "legacy": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/151.ogg"
+    },
+    "height": 4,
+    "id": 151,
+    "is_default": true,
+    "location_area_encounters": "https://pokeapi.co/api/v2/pokemon/151/encounters",
+    "name": "mew",
+    "order": 248,
+    "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png",
+        "front_female": null,
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/151.png",
+        "front_shiny_female": null,
+        "other": {
+            "home": {
+                "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/151.png",
+                "front_female": null,
+                "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/151.png",
+                "front_shiny_female": null
+            },
+            "official-artwork": {
+                "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+                "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/151.png"
+            }
+        },
+    },
+    "stats": [
+        {
+            "base_stat": 100,
+            "effort": 3,
+            "stat": {
+                "name": "hp",
+                "url": "https://pokeapi.co/api/v2/stat/1/"
+            }
+        },
+        {
+            "base_stat": 100,
+            "effort": 0,
+            "stat": {
+                "name": "attack",
+                "url": "https://pokeapi.co/api/v2/stat/2/"
+            }
+        },
+        {
+            "base_stat": 100,
+            "effort": 0,
+            "stat": {
+                "name": "defense",
+                "url": "https://pokeapi.co/api/v2/stat/3/"
+            }
+        },
+        {
+            "base_stat": 100,
+            "effort": 0,
+            "stat": {
+                "name": "special-attack",
+                "url": "https://pokeapi.co/api/v2/stat/4/"
+            }
+        },
+        {
+            "base_stat": 100,
+            "effort": 0,
+            "stat": {
+                "name": "special-defense",
+                "url": "https://pokeapi.co/api/v2/stat/5/"
+            }
+        },
+        {
+            "base_stat": 100,
+            "effort": 0,
+            "stat": {
+                "name": "speed",
+                "url": "https://pokeapi.co/api/v2/stat/6/"
+            }
+        }
+    ],
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "psychic",
+                "url": "https://pokeapi.co/api/v2/type/14/"
+            }
+        }
+    ],
+    "weight": 40
+}

@@ -1,6 +1,6 @@
 
 import PokemonGrid from "./component/PokemonGrid";
-import PokemonTable from "./component/PokemonTable";
+import PokemonTable from "./table/PokemonTable";
 
 export default function Home() {
   return (
