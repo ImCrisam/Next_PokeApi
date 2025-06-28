@@ -26,7 +26,7 @@ export default function PokemonTableHead({ onSort, setFilteredTypes }: Props) {
             onSortDesc={() => onSort("name", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Tipo de Pokémon">
+        <TableHeaderWithFilter label="Tipo">
           <TypeFilterAutocomplete onFilterChange={setFilteredTypes} />
         </TableHeaderWithFilter>
         <TableHeaderWithFilter label="Peso (kg)">
@@ -41,37 +41,37 @@ export default function PokemonTableHead({ onSort, setFilteredTypes }: Props) {
             onSortDesc={() => onSort("height", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Salud base">
+        <TableHeaderWithFilter label="Ps">
           <SortButtons
             onSortAsc={() => onSort("hp", "asc")}
             onSortDesc={() => onSort("hp", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Experiencia base">
+        <TableHeaderWithFilter label="Experiencia">
           <SortButtons
             onSortAsc={() => onSort("base_experience", "asc")}
             onSortDesc={() => onSort("base_experience", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Ataque base">
+        <TableHeaderWithFilter label="Ataque">
           <SortButtons
             onSortAsc={() => onSort("attack", "asc")}
             onSortDesc={() => onSort("attack", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Defensa base">
+        <TableHeaderWithFilter label="Defensa">
           <SortButtons
             onSortAsc={() => onSort("defense", "asc")}
             onSortDesc={() => onSort("defense", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Ataque especial">
+        <TableHeaderWithFilter label="At Esp">
           <SortButtons
             onSortAsc={() => onSort("special_attack", "asc")}
             onSortDesc={() => onSort("special_attack", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Defensa especial">
+        <TableHeaderWithFilter label="Def Esp">
           <SortButtons
             onSortAsc={() => onSort("special_defense", "asc")}
             onSortDesc={() => onSort("special_defense", "desc")}
@@ -83,7 +83,7 @@ export default function PokemonTableHead({ onSort, setFilteredTypes }: Props) {
             onSortDesc={() => onSort("speed", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Ver detalles" />
+        <TableHeaderWithFilter label="Ver Mas Detalles " />
       </TableRow>
     </TableHead>
   );

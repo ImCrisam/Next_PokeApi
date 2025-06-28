@@ -11,7 +11,7 @@ export default function PokemonTableBody({ pokemons }: Props) {
     <TableBody>
       {pokemons.map((p) => (
         <TableRow key={p.id} hover>
-          <TableCell>{p.id}</TableCell>
+          <TableCell>{"#"+p.id}</TableCell>
           <TableCell>
             <Image
               src={p.sprite_front_default ?? "/placeholder.png"}

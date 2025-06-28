@@ -15,8 +15,6 @@ export default function ThemeRegistry({ children }: { children: ReactNode }) {
       <button
         style={{
           position: "fixed",
-          bottom: 16,
-          right: 16,
           zIndex: 9999,
           padding: "0.5rem 1rem",
         }}

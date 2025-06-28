@@ -85,7 +85,7 @@ export default function CustomPokemonTable() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
             sx={{
-              background: "rgba(255,255,255,0.15)",
+              background: "rgba(0, 0, 0, 0.15)",
               color: "white",
               borderBottomLeftRadius: "1rem",
               borderBottomRightRadius: "1rem",
