@@ -43,7 +43,7 @@ export default function CustomPokemonTable() {
 
   return (
         <Paper
-          className="card"
+          className=""
           sx={{
             overflow: "hidden",
             background: "rgba(255,255,255,0.25)",
