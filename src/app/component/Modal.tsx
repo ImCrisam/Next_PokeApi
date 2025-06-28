@@ -10,16 +10,16 @@ interface ModalProps {
 
 export default function ModalComponent({ open, onClose, children }: ModalProps) {
   return (
-    <Modal open={open} onClose={onClose} className="center-flex">
+    <Modal open={open} onClose={onClose} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
       <Box
         sx={{
           position: "absolute",
-          maxWidth: "80vw",
-          height: "80vh",
           bgcolor: "transparent",
           borderRadius: 4,
           boxShadow: 8,
           outline: "none",
+          flex: 1,
+          display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
@@ -51,6 +51,8 @@ export default function ModalComponent({ open, onClose, children }: ModalProps) 
           sx={{
             width: "100%",
             height: "100%",
+            maxWidth: "88vw",
+            maxHeight: "88vh",
             display: "flex",
             bgcolor: "transparent",
           }}
