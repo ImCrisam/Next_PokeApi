@@ -10,39 +10,36 @@ interface ModalProps {
 
 export default function ModalComponent({ open, onClose, children }: ModalProps) {
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={onClose} className="center-flex">
       <Box
         sx={{
           position: "absolute",
-          top: "10vh",
-          left: "10vw",
-          width: "80vw",
+          maxWidth: "80vw",
           height: "80vh",
-          bgcolor: "background.paper",
+          bgcolor: "transparent",
           borderRadius: 4,
-          boxShadow: 24,
+          boxShadow: 8,
           outline: "none",
-          display: "flex",
+          flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
           boxSizing: "border-box",
           p: 0,
         }}
       >
-        {/* X sobresaliendo y con diseño agradable */}
         <IconButton
           aria-label="close"
           onClick={onClose}
           sx={{
             position: "absolute",
-            top: -28,
-            right: 16,
-            zIndex: 10,
+            top: -16,
+            right: -16,
+            zIndex: 100,
             background: "white",
             border: "2px solid #eee",
             boxShadow: 2,
-            width: 48,
-            height: 48,
+            width: 32,
+            height: 32,
             "&:hover": {
               background: "#f5f5f5",
             },
@@ -54,9 +51,8 @@ export default function ModalComponent({ open, onClose, children }: ModalProps) 
           sx={{
             width: "100%",
             height: "100%",
-            p: 2,
-            pt: 2,
-            overflow: "auto",
+            display: "flex",
+            bgcolor: "transparent",
           }}
         >
           {children}

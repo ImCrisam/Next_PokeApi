@@ -15,7 +15,17 @@ export default function PokemonGrid() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4">
+    <div
+      className="pokemon-grid"
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        gap: "2rem",
+        width: "100%",
+        maxWidth: "1200px",
+        margin: "0 auto",
+      }}
+    >
       {pokemons.map((p) => (
         <PokemonCard key={p.id} pokemon={p} onClick={handleClick} />
       ))}
