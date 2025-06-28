@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { PokemonProvider } from "./context/PokemonContext";
 import { ClientProviders } from "./context/ClientProvider";
+import ThemeRegistry from "./theme/ThemeRegistry";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ClientProviders>
-          {children}
+          <ThemeRegistry>{children}</ThemeRegistry>
         </ClientProviders>
       </body>
     </html>
