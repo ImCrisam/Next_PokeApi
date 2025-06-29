@@ -10,7 +10,7 @@ interface ModalProps {
 
 export default function ModalComponent({ open, onClose, children }: ModalProps) {
   return (
-    <Modal open={open} onClose={onClose} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <Modal open={open} disableScrollLock onClose={onClose} sx={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
       <Box
         sx={{
           position: "absolute",
@@ -21,7 +21,6 @@ export default function ModalComponent({ open, onClose, children }: ModalProps) 
           flex: 1,
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
           justifyContent: "center",
           boxSizing: "border-box",
           p: 0,
@@ -51,8 +50,8 @@ export default function ModalComponent({ open, onClose, children }: ModalProps) 
           sx={{
             width: "100%",
             height: "100%",
-            maxWidth: "88vw",
-            maxHeight: "88vh",
+            maxWidth: "85vw",
+            maxHeight: "85vh",
             display: "flex",
             bgcolor: "transparent",
           }}
