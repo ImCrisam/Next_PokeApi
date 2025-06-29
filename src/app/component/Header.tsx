@@ -1,13 +1,15 @@
 'use client'
 import { Box, Button, Fade, Input, Zoom } from "@mui/material";
 import React, { useState } from "react";
-import Search from "@mui/icons-material/Search";
 import ModalComponent from "./Modal";
 import PokemonTable from "../table/PokemonTable";
 import TableViewOutlinedIcon from '@mui/icons-material/TableViewOutlined';
+import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
+import { usePokemonContext } from "../context/PokemonContext";
+
 
 export default function Header() {
-    const [searchTerm, setSearchTerm] = useState("");
+    const { search, clearFilters } = usePokemonContext();
     const [open, setOpen] = useState(false);
 
     return (
@@ -27,10 +29,24 @@ export default function Header() {
             <ModalComponent open={open} onClose={() => setOpen(false)}>
                 <PokemonTable />
             </ModalComponent>
+
+            <Button
+                onClick={() => setOpen(true)}
+                variant={"contained"}
+                sx={{
+                    py: 1,
+                    borderRadius: 999,
+                    transition: "all 0.3s",
+                    fontSize: 16,
+                    background: "linear-gradient(to right, #4ade80, #60a5fa)"
+                }}
+            >
+                <TableViewOutlinedIcon />
+            </Button>
             <Input
-                placeholder="Buscar Pokémon... (◡ ‿ ◡)"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Buscar"
+                value={search.value}
+                onChange={(e) => search.set(e.target.value)}
                 sx={{
                     py: 0.3,
                     px: "auto",
@@ -54,7 +70,7 @@ export default function Header() {
             />
 
             <Button
-                onClick={() => setOpen(true)}
+                onClick={clearFilters}
                 variant={"contained"}
                 sx={{
                     py: 1,
@@ -64,7 +80,7 @@ export default function Header() {
                     background: "linear-gradient(to right, #4ade80, #60a5fa)"
                 }}
             >
-                <TableViewOutlinedIcon />
+                <FilterAltOffIcon/>
             </Button>
         </Box>
     );
