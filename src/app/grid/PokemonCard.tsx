@@ -14,7 +14,7 @@ type Props = {
 };
 
 export function PokemonCard({ pokemon, onClick }: Props) {
-  const { getTypeGlassBackground } = usePokemonContext();
+  const { getTypeGlassBackground, types } = usePokemonContext();
   
   const background = getTypeGlassBackground(pokemon.types, { deg: 135, opacity: 80 });
   return (
@@ -83,7 +83,7 @@ export function PokemonCard({ pokemon, onClick }: Props) {
           }}
         >
           {pokemon.types.map((t) => (
-            <ChipType key={t.type.name} type={t.type.name} />
+            <ChipType key={t.type.name} name={t.type.name} color = {types.get(t.type.name)?.color??"#e5e7eb" } />
           ))}
         </Box>
       </CardContent>

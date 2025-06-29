@@ -3,8 +3,13 @@ import Autocomplete, { AutocompleteCloseReason } from '@mui/material/Autocomplet
 import Box from '@mui/material/Box';
 import InputBase from '@mui/material/InputBase';
 
+interface TypeInfo {
+  nameLocal: string;
+  color: string;
+}
+
 interface PickerTypesProps {
-  options: string[];
+  options: Map<string, TypeInfo>;
   value: string[];
   onChange: (selected: string[]) => void;
 }
@@ -27,12 +32,22 @@ export default function PickerTypes({ options, value, onChange }: PickerTypesPro
     setOpen(false);
   };
 
+  const optionKeys = React.useMemo(() => Array.from(options.keys()), [options]);
+
   return (
     <React.Fragment>
       <Box>
         <button onClick={handleClick}>Tipos</button>
         {value.map((type) => (
-          <span key={type}>{type}</span>
+          <span key={type} style={{
+            background: options.get(type)?.color || '#e5e7eb',
+            color: '#fff',
+            borderRadius: 4,
+            padding: '2px 8px',
+            marginRight: 4,
+            fontWeight: 600,
+            textTransform: 'capitalize',
+          }}>{options.get(type)?.nameLocal || type}</span>
         ))}
       </Box>
       <Autocomplete
@@ -53,11 +68,20 @@ export default function PickerTypes({ options, value, onChange }: PickerTypesPro
         noOptionsText="No hay tipos"
         renderOption={(props, option, { selected }) => (
           <li {...props}>
-            {selected ? '[x]' : '[ ]'} {option}
+            {selected ? '[x]' : '[ ]'}{' '}
+            <span style={{
+              background: options.get(option)?.color || '#e5e7eb',
+              color: '#fff',
+              borderRadius: 4,
+              padding: '2px 8px',
+              marginRight: 4,
+              fontWeight: 600,
+              textTransform: 'capitalize',
+            }}>{options.get(option)?.nameLocal || option}</span>
           </li>
         )}
-        options={[...options].sort()}
-        getOptionLabel={(option) => option}
+        options={optionKeys.sort()}
+        getOptionLabel={(option) => options.get(option)?.nameLocal || option}
         renderInput={(params) => (
           <InputBase
             ref={params.InputProps.ref}

@@ -1,15 +1,14 @@
 import { Chip } from "@mui/material";
-import { colours, PokemonType } from "../utils/colorsTypes";
 
 interface ChipTypeProps {
-  type: string;
+  name: string;
+  color: string;
 }
 
-export default function ChipType({ type }: ChipTypeProps) {
-  const color = colours[type as PokemonType] || "#e5e7eb";
+export default function ChipType({ name, color }: ChipTypeProps) {
   return (
     <Chip
-      label={type}
+      label={name}
       size="small"
       sx={{
         textTransform: "capitalize",
