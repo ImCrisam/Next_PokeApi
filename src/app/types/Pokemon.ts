@@ -60,3 +60,8 @@ export interface Pokemon {
     };
   }[];
 }
+
+export interface PokemonTypeInfo {
+    nameLocal: string;
+    color: string;
+}

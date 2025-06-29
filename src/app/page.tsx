@@ -19,7 +19,17 @@ export default function Home() {
   const { pokemons, isLoading, error } = usePokemonContext();
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", maxWidth: "100%", margin: '0', height: "100%", paddingBlock: "2rem", paddingInline: "2rem" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        maxWidth: "100%",
+        margin: '0',
+        height: "100%",
+        paddingBlock: "2rem",
+        paddingInline: "2rem"
+      }}>
       <Header></Header>
       {/* <DebouncedSlider onChange={function (value: number): void {
         throw new Error("Function not implemented.");

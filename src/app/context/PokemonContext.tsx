@@ -5,11 +5,12 @@ import { fetchAllPokemons } from "../services/pokemonService";
 import { Pokemon } from "../types/Pokemon";
 import { searchByName, filterByTypes, sortByField } from "../utils/filterAndSorts";
 import { colours } from "../utils/colorsTypes";
+import { usePokemonTypes } from "../hooks/usePokemonTypes";
 
 type PokemonContextType = {
   pokemons: Pokemon[];
   isLoading: boolean;
-  types: string[];
+  types: Map<string, { nameLocal: string; color: string }>;
   error: string | null;
   filterTypes: {
     value: string[];
@@ -39,47 +40,20 @@ type PokemonProviderProps = {
 };
 
 export function PokemonProvider({ children }: PokemonProviderProps) {
-  const allPokemonsRef = useRef<Pokemon[]>([]); 
-  const [types, setTypes] = useState<string[]>([]);
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]); // Los que se muestran (filtrados)
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { allPokemoms, types, isLoading, error } = usePokemonTypes();
+  const [pokemons, setPokemons] = useState<Pokemon[]>(allPokemoms); // Los que se muestran (filtrados)
   const [filteredTypes, setFilteredTypes] = useState<string[]>([]);
   const [sortField, setSortField] = useState<keyof Pokemon>("id");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [searchName, setSearchName] = useState("");
 
-  useEffect(() => {
-    const loadPokemons = async () => {
-      try {
-        const data = await fetchAllPokemons();
-        allPokemonsRef.current = data; 
-        setPokemons(data);
-        const allTypes = new Set<string>();
-        data.forEach((p) => {
-          p.types.forEach((t) => allTypes.add(t.type.name));
-        });
-        setTypes(Array.from(allTypes).sort());
-      } catch (err) {
-        setError("Error al cargar los Pokémon.");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadPokemons();
-  }, []);
-
-
   // Memo para filtrar, buscar y ordenar
   const filteredPokemons = useMemo(() => {
-    let result = filterByTypes(pokemons, filteredTypes);
-    if (searchName) {
-      result = searchByName(result, searchName);
-    }
+    let result = filterByTypes(allPokemoms, filteredTypes);
+    result = searchByName(result, searchName);
     result = sortByField(result, sortField, sortOrder);
     return result;
-  }, [pokemons, filteredTypes, sortField, sortOrder, searchName]);
+  }, [allPokemoms, filteredTypes, sortField, sortOrder, searchName]);
 
   // Agrupar filtros y orden en objetos para exponer value/set
   const filterTypes = {
@@ -99,6 +73,7 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
 
   // Función para limpiar todos los filtros y búsqueda
   const clearFilters = () => {
+    setPokemons(allPokemoms)
     setFilteredTypes([]);
     setSortField("id");
     setSortOrder("asc");
@@ -107,14 +82,13 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
 
   // Función para obtener el background glass de tipos
   const getTypeGlassBackground = (
-    types: { type: { name: string } }[],
+    typesArr: { type: { name: string } }[],
     options?: { deg?: number; opacity?: number }
   ): { withOpacity: string; noOpacity: string } => {
     const deg = options?.deg ?? 135;
     const opacity = options?.opacity ?? 80;
-    const typeColors = types.map(
-      (t) => (colours[t.type.name as keyof typeof colours] || "#e5e7eb")
-    );
+    const typeColors = typesArr
+      .map(t => types.get(t.type.name)?.color || '#e5e7eb');
     // Con opacidad
     const typeColorsWithOpacity = typeColors.map(c => c + opacity);
     // Sin opacidad

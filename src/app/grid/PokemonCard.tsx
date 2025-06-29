@@ -15,6 +15,7 @@ type Props = {
 
 export function PokemonCard({ pokemon, onClick }: Props) {
   const { getTypeGlassBackground } = usePokemonContext();
+  
   const background = getTypeGlassBackground(pokemon.types, { deg: 135, opacity: 80 });
   return (
     <Box

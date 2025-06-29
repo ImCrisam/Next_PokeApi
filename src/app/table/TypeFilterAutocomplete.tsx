@@ -18,7 +18,7 @@ export default function TypeFilterAutocomplete({ onFilterChange }: TypeFilterAut
     <Autocomplete
       multiple
       limitTags={2}
-      options={types}
+      options={Array.from(types.keys())}
       value={selectedTypes}
       onChange={(_, newValue) => {
         if (newValue.length <= 2) setSelectedTypes(newValue);
