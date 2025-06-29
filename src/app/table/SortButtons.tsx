@@ -8,7 +8,7 @@ interface SortButtonsProps {
 
 export default function SortButtons({ onSortAsc, onSortDesc }: SortButtonsProps) {
   return (
-    <ButtonGroup size="small" variant="outlined" sx={{ py: 0, px: 0 }}>
+    <ButtonGroup size="small" variant="outlined" sx={{ py: 0, px: 0, displey: 'flex', flexDirection: 'row', flex:1, boxShadow: '0 2px 0 0  rgba(0, 0, 0, 0.1)' }}>
       <Tooltip title="Sort ascending">
         <IconButton onClick={onSortAsc}>
           <ExpandMoreIcon fontSize="small" />

@@ -2,6 +2,7 @@ import { Button, TableBody, TableCell, TableRow } from "@mui/material";
 import { Pokemon } from "../types/Pokemon";
 import Image from "next/image";
 import { usePokemonContext } from "../context/PokemonContext";
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 interface Props {
   pokemons: Pokemon[];
@@ -58,10 +59,9 @@ export default function PokemonTableBody({ pokemons, onClickRow }: Props) {
           <TableCell>{p.speed}</TableCell>
           <TableCell>
             <Button
-              className="px-2 py-1 bg-blue-500 text-white rounded"
               onClick={e => { e.stopPropagation(); onClickRow(p); }}
             >
-              Ver
+              <VisibilityIcon fontSize="medium" />
             </Button>
           </TableCell>
         </TableRow>

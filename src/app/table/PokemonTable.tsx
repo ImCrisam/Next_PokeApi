@@ -30,7 +30,7 @@ export default function CustomPokemonTable() {
 
   return (
         <Paper
-          className=""
+          className="glass"
           sx={{
             overflow: "hidden",
             background: "rgba(255,255,255,0.25)",
@@ -51,7 +51,6 @@ export default function CustomPokemonTable() {
             sx={{
               width: "100%",
               height: "100%",
-              background: "transparent",
               flex: 1,
             }}
           >
@@ -74,8 +73,7 @@ export default function CustomPokemonTable() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
             sx={{
-              background: "rgba(0, 0, 0, 0.15)",
-              color: "white",
+              background: "linear-gradient(90deg,rgb(209, 250, 229, 0.25) 0%,rgb(186, 229, 253) 100%)",
               borderBottomLeftRadius: "1rem",
               borderBottomRightRadius: "1rem",
             }}

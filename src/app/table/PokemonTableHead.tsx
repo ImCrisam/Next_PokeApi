@@ -14,17 +14,15 @@ export default function PokemonTableHead({ onSort, setFilteredTypes }: Props) {
     <TableHead>
       <TableRow
         sx={{
-          background:
-            "linear-gradient(90deg, #d1fae5cc 0%, #bae6fdcc 100%)",
           borderTopLeftRadius: 24,
           borderTopRightRadius: 24,
           border: "2px solid #bbf7d0",
           borderBottom: "2px solid #bbf7d0",
-          boxShadow: "0 4px 24px 0 #a7f3d0cc",
+          boxShadow: "0 4px 24px 0rgba(167, 243, 208, 0.62)",
           overflow: "hidden",
 
           "& th":{
-              background: "rgba(255,255,255,0.20)",
+              background: "linear-gradient(180deg,rgb(209, 250, 229) 0%,rgb(186, 229, 253) 100%)",
               borderTop: "none",
               borderBottom: "none",
               color: "#047857",
