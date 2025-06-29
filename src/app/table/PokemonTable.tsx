@@ -1,3 +1,4 @@
+'use client'
 import { useState, useMemo } from "react";
 import { Paper, TableContainer, TablePagination, Table } from "@mui/material";
 import { usePokemonContext } from "../context/PokemonContext";
