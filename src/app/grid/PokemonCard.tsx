@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import { Pokemon } from "../types/Pokemon";
-import { Card, CardContent, Typography, Box, Chip } from "@mui/material";
+import { Card, CardContent, Typography, Box } from "@mui/material";
+import { Chip } from "@mui/material";
+import ChipType from "./ChipType";
 
 type Props = {
   pokemon: Pokemon;
@@ -11,23 +13,18 @@ type Props = {
 
 export function PokemonCard({ pokemon, onClick }: Props) {
   return (
-    <Card
+    <Box
       onClick={() => onClick(pokemon)}
+      className="glass"
       sx={{
         position: "relative",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        cursor: "pointer",
-        borderRadius: 2,
-        boxShadow: 2,
-        background: "rgba(255,255,255,0.7)",
         minWidth: 180,
         maxWidth: 240,
         m: "auto",
-        transition: "box-shadow 0.2s",
-        "&:hover": { boxShadow: 6 },
       }}
     >
       <Box sx={{ position: "absolute", top: 8, left: 8 }}>
@@ -72,18 +69,10 @@ export function PokemonCard({ pokemon, onClick }: Props) {
           }}
         >
           {pokemon.types.map((t) => (
-            <Chip
-              key={t.type.name}
-              label={t.type.name}
-              size="small"
-              sx={{
-                textTransform: "capitalize",
-                bgcolor: "#e5e7eb",
-              }}
-            />
+            <ChipType key={t.type.name} type={t.type.name} />
           ))}
         </Box>
       </CardContent>
-    </Card>
+    </Box>
   );
 }

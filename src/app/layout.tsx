@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import { PokemonProvider } from "./context/PokemonContext";
 import { ClientProviders } from "./context/ClientProvider";
+
 import ThemeRegistry from "./theme/ThemeRegistry";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
