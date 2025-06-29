@@ -23,3 +23,18 @@ export function sortByField<T>(
     return 0;
   });
 }
+
+export function filterByTypes(pokemons: Pokemon[], types: string[]): Pokemon[] {
+  if (!types.length) return pokemons;
+  return pokemons.filter((p) =>
+    types.every((type) => p.types.some((t) => t.type.name === type))
+  );
+}
+
+
+export function searchByName<T extends { name: string }>(array: T[], name: string): T[] {
+  if (!name) return array;
+  return array.filter((item) =>
+    item.name.toLowerCase().includes(name.toLowerCase())
+  );
+}

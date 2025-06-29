@@ -12,23 +12,20 @@ import PokemonDetailCard from "./grid/PokemonDetailCard";
 import PokemonCryPlayer from "./component/PokemonCryPlayer";
 import { Pokemon } from "./types/Pokemon";
 import MasonryGrid from "./grid/MasonryGrid";
+import Header from "./component/Header";
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   const { pokemons, isLoading, error } = usePokemonContext();
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", maxWidth: "100%", margin: '0', height:"100%" }}>
-      <div>
-        <DebouncedSlider onChange={function (value: number): void {
-          throw new Error("Function not implemented.");
-        }}></DebouncedSlider>
-        <button onClick={() => setOpen(true)}>Abrir Modal</button>
-      </div>
-      <ModalComponent open={open} onClose={() => setOpen(false)}>
-        <PokemonTable />
-      </ModalComponent>
+    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", maxWidth: "100%", margin: '0', height: "100%", paddingBlock: "2rem", paddingInline: "2rem" }}>
+      <Header></Header>
+      {/* <DebouncedSlider onChange={function (value: number): void {
+        throw new Error("Function not implemented.");
+      }}></DebouncedSlider> */}
+
+
       <ModalComponent open={!!selectedPokemon} onClose={() => setSelectedPokemon(null)}>
         {selectedPokemon && (
           <Box sx={{ position: 'relative' }}>
@@ -42,14 +39,21 @@ export default function Home() {
       <BottomDrawer>
         <PokemonTable />
       </BottomDrawer>
-      <main style={{ width: '100%', minHeight: '100vh', padding: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <MasonryGrid>
-            {pokemons.map((pokemon) => (
-              <Box key={pokemon.id} >
-              <PokemonCard  pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} />
-              </Box >
-            ))}
-          </MasonryGrid>
+      <main style={{
+        width: '100%',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingBlock: "2rem",
+      }}>
+        <MasonryGrid>
+          {pokemons.map((pokemon) => (
+            <Box key={pokemon.id} >
+              <PokemonCard pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} />
+            </Box >
+          ))}
+        </MasonryGrid>
       </main>
     </Box>
   );

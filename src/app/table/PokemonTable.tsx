@@ -1,31 +1,19 @@
 'use client'
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Paper, TableContainer, TablePagination, Table } from "@mui/material";
 import { usePokemonContext } from "../context/PokemonContext";
-import { filterByTypes } from "../utils/filterByTypes";
-import { sortByField, SortOrder, SortField } from "../utils/sortByField";
+import { SortOrder, SortField } from "../utils/filterAndSorts";
 import PokemonTableHead from "./PokemonTableHead";
 import PokemonTableBody from "./PokemonTableBody";
-import ModalComponent from "../component/Modal";
 
 export default function CustomPokemonTable() {
-  const { pokemons, isLoading, error } = usePokemonContext();
-  const [filteredTypes, setFilteredTypes] = useState<string[]>([]);
+  const { pokemons, filterTypes, sort } = usePokemonContext();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [sortField, setSortField] = useState<SortField>("id");
-  const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
-  const [open, setOpen] = useState(true);
-
-  const filteredPokemons = useMemo(() => {
-    let result = filterByTypes(pokemons, filteredTypes);
-    result = sortByField(result, sortField, sortOrder);
-    return result;
-  }, [pokemons, filteredTypes, sortField, sortOrder]);
 
   const handleSort = (field: SortField, order: SortOrder) => {
-    setSortField(field);
-    setSortOrder(order);
+    sort.setField(field);
+    sort.setOrder(order);
   };
 
   const handleChangePage = (_: unknown, newPage: number) => setPage(newPage);
@@ -34,13 +22,10 @@ export default function CustomPokemonTable() {
     setPage(0);
   };
 
-  const paginatedPokemons = filteredPokemons.slice(
+  const paginatedPokemons = pokemons.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
-
-  if (isLoading) return <p>Cargando...</p>;
-  if (error) return <p>{error}</p>;
 
   return (
         <Paper
@@ -72,7 +57,7 @@ export default function CustomPokemonTable() {
             <Table stickyHeader sx={{ width: "100%", height: "100%" }}>
               <PokemonTableHead
                 onSort={handleSort}
-                setFilteredTypes={setFilteredTypes}
+                setFilteredTypes={filterTypes.set}
               />
               <PokemonTableBody pokemons={paginatedPokemons} />
             </Table>
@@ -80,7 +65,7 @@ export default function CustomPokemonTable() {
           <TablePagination
             rowsPerPageOptions={[10, 20, 50]}
             component="div"
-            count={filteredPokemons.length}
+            count={pokemons.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}
@@ -93,8 +78,6 @@ export default function CustomPokemonTable() {
             }}
           />
         </Paper>
-
-      
 
   );
 }
