@@ -10,7 +10,7 @@ import { usePokemonContext } from "../context/PokemonContext";
 
 export default function Header() {
     const { search, clearFilters } = usePokemonContext();
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     return (
         <Box

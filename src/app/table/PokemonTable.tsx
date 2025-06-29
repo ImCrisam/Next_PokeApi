@@ -5,6 +5,7 @@ import { usePokemonContext } from "../context/PokemonContext";
 import { SortOrder, SortField } from "../utils/filterAndSorts";
 import PokemonTableHead from "./PokemonTableHead";
 import PokemonTableBody from "./PokemonTableBody";
+import { Pokemon } from "../types/Pokemon";
 
 export default function CustomPokemonTable() {
   const { pokemons, filterTypes, sort } = usePokemonContext();
@@ -59,7 +60,9 @@ export default function CustomPokemonTable() {
                 onSort={handleSort}
                 setFilteredTypes={filterTypes.set}
               />
-              <PokemonTableBody pokemons={paginatedPokemons} />
+              <PokemonTableBody pokemons={paginatedPokemons} onClickRow={function (pokemon: Pokemon): void {
+            throw new Error("Function not implemented.");
+          } } />
             </Table>
           </TableContainer>
           <TablePagination

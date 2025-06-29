@@ -6,6 +6,7 @@ import { Card, CardContent, Typography, Box } from "@mui/material";
 import { Chip } from "@mui/material";
 import ChipType from "./ChipType";
 import { colours, PokemonType } from "../utils/colorsTypes";
+import { usePokemonContext } from "../context/PokemonContext";
 
 type Props = {
   pokemon: Pokemon;
@@ -13,26 +14,18 @@ type Props = {
 };
 
 export function PokemonCard({ pokemon, onClick }: Props) {
-  // Obtener los colores de los tipos
-  const typeColors = pokemon.types.map((t) => colours[t.type.name as PokemonType] + 80 || "#e5e7eb");
-  let background;
-  if (typeColors.length === 1) {
-    background = typeColors[0];
-  } else if (typeColors.length > 1) {
-    background = `linear-gradient(135deg, ${typeColors[0]}, ${typeColors[1]})`;
-  } else {
-    background = "#e5e7eb";
-  }
+  const { getTypeGlassBackground } = usePokemonContext();
+  const background = getTypeGlassBackground(pokemon.types, { deg: 135, opacity: 80 });
   return (
     <Box
       onClick={() => onClick(pokemon)}
-      className="glass"
+      className="glass card glass-hover"
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        background,
+        background: background.withOpacity,
       }}
     >
       <Box sx={{ position: "absolute", top: 8, left: 8 }}>

@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { TableCell, Box, Typography } from "@mui/material";
 
 interface TableHeaderWithFilterProps {
-  label: string;
+  label: string|null;
   children?: ReactNode;
 }
 
@@ -17,7 +17,7 @@ export default function TableHeaderWithFilter({ label, children }: TableHeaderWi
           flexDirection: "column",
           flex: 1,
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: label ? "space-between":"center",
           height: "100%",
           width: "100%",
           px: 1,

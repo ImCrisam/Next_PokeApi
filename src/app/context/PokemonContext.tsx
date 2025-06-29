@@ -4,6 +4,7 @@ import React, { createContext, useContext, useEffect, useState, ReactNode, useRe
 import { fetchAllPokemons } from "../services/pokemonService";
 import { Pokemon } from "../types/Pokemon";
 import { searchByName, filterByTypes, sortByField } from "../utils/filterAndSorts";
+import { colours } from "../utils/colorsTypes";
 
 type PokemonContextType = {
   pokemons: Pokemon[];
@@ -24,7 +25,11 @@ type PokemonContextType = {
     value: string;
     set: React.Dispatch<React.SetStateAction<string>>;
   };
-  clearFilters: () => void; // Nueva función para limpiar filtros
+  clearFilters: () => void;
+  getTypeGlassBackground: (
+    types: { type: { name: string } }[],
+    options?: { deg?: number; opacity?: number }
+  ) => { withOpacity: string; noOpacity: string };
 };
 
 const PokemonContext = createContext<PokemonContextType | undefined>(undefined);
@@ -100,6 +105,35 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
     setSearchName("");
   };
 
+  // Función para obtener el background glass de tipos
+  const getTypeGlassBackground = (
+    types: { type: { name: string } }[],
+    options?: { deg?: number; opacity?: number }
+  ): { withOpacity: string; noOpacity: string } => {
+    const deg = options?.deg ?? 135;
+    const opacity = options?.opacity ?? 80;
+    const typeColors = types.map(
+      (t) => (colours[t.type.name as keyof typeof colours] || "#e5e7eb")
+    );
+    // Con opacidad
+    const typeColorsWithOpacity = typeColors.map(c => c + opacity);
+    // Sin opacidad
+    const typeColorsNoOpacity = typeColors;
+    let withOpacity: string;
+    let noOpacity: string;
+    if (typeColors.length === 1) {
+      withOpacity = `linear-gradient(${deg}deg, ${typeColorsWithOpacity[0]}, ${typeColorsWithOpacity[0]})`;
+      noOpacity = `linear-gradient(${deg}deg, ${typeColorsNoOpacity[0]}, ${typeColorsNoOpacity[0]})`;
+    } else if (typeColors.length > 1) {
+      withOpacity = `linear-gradient(${deg}deg, ${typeColorsWithOpacity[0]}, ${typeColorsWithOpacity[1]})`;
+      noOpacity = `linear-gradient(${deg}deg, ${typeColorsNoOpacity[0]}, ${typeColorsNoOpacity[1]})`;
+    } else {
+      withOpacity = "#e5e7eb";
+      noOpacity = "#e5e7eb";
+    }
+    return { withOpacity, noOpacity };
+  };
+
   return (
     <PokemonContext.Provider value={{
       pokemons: filteredPokemons,
@@ -109,7 +143,8 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
       filterTypes,
       sort,
       search,
-      clearFilters
+      clearFilters,
+      getTypeGlassBackground
     }}>
       {children}
     </PokemonContext.Provider>

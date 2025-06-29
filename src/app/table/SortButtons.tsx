@@ -1,7 +1,6 @@
 import { IconButton, ButtonGroup, Tooltip } from "@mui/material";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 interface SortButtonsProps {
   onSortAsc: () => void;
   onSortDesc: () => void;
@@ -12,12 +11,12 @@ export default function SortButtons({ onSortAsc, onSortDesc }: SortButtonsProps)
     <ButtonGroup size="small" variant="outlined" sx={{ py: 0, px: 0 }}>
       <Tooltip title="Sort ascending">
         <IconButton onClick={onSortAsc}>
-          <ArrowUpwardIcon fontSize="small" />
+          <ExpandMoreIcon fontSize="small" />
         </IconButton>
       </Tooltip>
       <Tooltip title="Sort descending">
         <IconButton onClick={onSortDesc}>
-          <ArrowDownwardIcon fontSize="small" />
+          <ExpandLessIcon fontSize="small" />
         </IconButton>
       </Tooltip>
     </ButtonGroup>

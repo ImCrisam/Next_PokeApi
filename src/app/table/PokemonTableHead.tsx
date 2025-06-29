@@ -2,8 +2,8 @@ import TableHeaderWithFilter from "./TableHeaderWithFilter";
 import TypeFilterAutocomplete from "./TypeFilterAutocomplete";
 import SortButtons from "./SortButtons";
 import { TableHead, TableRow } from "@mui/material";
-import { SortField, SortOrder } from "../utils/sortByField";
-
+import { SortField, SortOrder } from "../utils/filterAndSorts";
+import ImageIcon from '@mui/icons-material/Image';
 interface Props {
   onSort: (field: SortField, order: SortOrder) => void;
   setFilteredTypes: (types: string[]) => void;
@@ -12,14 +12,39 @@ interface Props {
 export default function PokemonTableHead({ onSort, setFilteredTypes }: Props) {
   return (
     <TableHead>
-      <TableRow>
+      <TableRow
+        sx={{
+          background:
+            "linear-gradient(90deg, #d1fae5cc 0%, #bae6fdcc 100%)",
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
+          border: "2px solid #bbf7d0",
+          borderBottom: "2px solid #bbf7d0",
+          boxShadow: "0 4px 24px 0 #a7f3d0cc",
+          overflow: "hidden",
+
+          "& th":{
+              background: "rgba(255,255,255,0.20)",
+              borderTop: "none",
+              borderBottom: "none",
+              color: "#047857",
+              fontWeight: 700,
+              fontSize: "1rem",
+              textShadow: "0 1px 2px #fff",
+              padding: "16px 0",
+              letterSpacing: "0.01em",
+            }
+        }}
+      >
         <TableHeaderWithFilter label="ID">
           <SortButtons
             onSortAsc={() => onSort("id", "asc")}
             onSortDesc={() => onSort("id", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Imagen" />
+        <TableHeaderWithFilter label="" >
+          <ImageIcon></ImageIcon>
+          </TableHeaderWithFilter>
         <TableHeaderWithFilter label="Nombre">
           <SortButtons
             onSortAsc={() => onSort("name", "asc")}
@@ -83,7 +108,7 @@ export default function PokemonTableHead({ onSort, setFilteredTypes }: Props) {
             onSortDesc={() => onSort("speed", "desc")}
           />
         </TableHeaderWithFilter>
-        <TableHeaderWithFilter label="Ver Mas Detalles " />
+        <TableHeaderWithFilter label="Ver Mas " />
       </TableRow>
     </TableHead>
   );
