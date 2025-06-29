@@ -11,37 +11,57 @@ export function pokemonAdapter(raw: any): Pokemon {
   }
 
   return {
-    id: raw.id,
-    name: raw.name,
-    base_experience: raw.base_experience,
-    height: raw.height,
-    weight: raw.weight,
-    order: raw.order,
-    is_default: raw.is_default,
-    location_area_encounters: raw.location_area_encounters,
+  id: raw.id,
+  name: raw.name,
+  base_experience: raw.base_experience,
+  height: raw.height,
+  weight: raw.weight,
+  order: raw.order,
+  is_default: raw.is_default,
+  location_area_encounters: raw.location_area_encounters,
+
+
+
+  // Cries
+  cry_latest: raw.cries?.latest ?? null,
+  cry_legacy: raw.cries?.legacy ?? null,
+
+  // Stats aplanadas
+  hp: statsMap.hp ?? 0,
+  attack: statsMap.attack ?? 0,
+  defense: statsMap.defense ?? 0,
+  special_attack: statsMap.special_attack ?? 0,
+  special_defense: statsMap.special_defense ?? 0,
+  speed: statsMap.speed ?? 0,
+
+  // Arrays originales
+  abilities: raw.abilities ?? [],
+  types: raw.types ?? [],
+
+  sprite_front_female: null,
+  sprite_front_shiny_female: null,
+
+  sprite_home_female: null,
+  sprite_home_shiny_female: null,
 
     // Sprites principales
-    sprite_front_default: raw.sprites?.front_default ?? null,
-    sprite_front_shiny: raw.sprites?.front_shiny ?? null,
-    sprite_home_default: raw.sprites?.other?.home?.front_default ?? null,
-    sprite_home_shiny: raw.sprites?.other?.home?.front_shiny ?? null,
-    sprite_official_artwork_default: raw.sprites?.other?.["official-artwork"]?.front_default ?? null,
-    sprite_official_artwork_shiny: raw.sprites?.other?.["official-artwork"]?.front_shiny ?? null,
-
-    // Cries
-    cry_latest: raw.cries?.latest ?? null,
-    cry_legacy: raw.cries?.legacy ?? null,
-
-    // Stats aplanadas
-    hp: statsMap.hp ?? 0,
-    attack: statsMap.attack ?? 0,
-    defense: statsMap.defense ?? 0,
-    special_attack: statsMap.special_attack ?? 0,
-    special_defense: statsMap.special_defense ?? 0,
-    speed: statsMap.speed ?? 0,
-
-    // Arrays originales
-    abilities: raw.abilities ?? [],
-    types: raw.types ?? [],
-  };
+  sprite_front_default: raw.sprites?.front_default ?? null,
+  sprite_front_shiny: raw.sprites?.front_shiny ?? null,
+  sprite_home_default: raw.sprites?.other?.home?.front_default ?? null,
+  sprite_home_shiny: raw.sprites?.other?.home?.front_shiny ?? null,
+  sprite_official_artwork_default: raw.sprites?.other?.["official-artwork"]?.front_default ?? null,
+  sprite_official_artwork_shiny: raw.sprites?.other?.["official-artwork"]?.front_shiny ?? null,
+  sprite_dream_world_default: raw.sprites?.other?.["dream_world"]?.front_default??null,
+  sprite_dream_world_female: raw.sprites?.other?.["dream_world"]?.front_female??null,
+  sprite_showdown_front_default: raw.sprites?.other?.["showdown"]?.front_default??null,
+  sprite_showdown_front_female: raw.sprites?.other?.["showdown"]?.front_female??null,
+  sprite_showdown_front_shiny: raw.sprites?.other?.["showdown"]?.front_shiny??null,
+  sprite_showdown_front_shiny_female: raw.sprites?.other?.["showdown"]?.front_shiny_female??null,
+  sprite_generation_iv_diamond_pearl_front_default: raw.sprites?.versions?.["generation-iv"]?.front_default??null,
+  sprite_generation_iv_diamond_pearl_front_female: raw.sprites?.versions?.["generation-iv"]?.front_female??null,
+  sprite_generation_iv_diamond_pearl_front_shiny: raw.sprites?.versions?.["generation-iv"]?.front_shiny??null,
+  sprite_generation_iv_diamond_pearl_front_shiny_female: raw.sprites?.versions?.["generation-iv"]?.front_shiny_female??null,
+  sprite_generation_viii_icons_front_default: raw.sprites?.versions?.["generation-viii"]?.front_default??null
+ 
+};
 }

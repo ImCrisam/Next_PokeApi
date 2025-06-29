@@ -11,8 +11,12 @@ interface MasonryGridProps {
 
 export default function MasonryGrid({ children, columns = { xs: 1, sm: 2, md: 3, lg: 4, xl: 5 }, spacing = { xs: 1, sm: 2, md: 3, lg: 4, xl: 5 } }: MasonryGridProps) {
   return (
-    <Box sx={{ width: '100%', minHeight: 400, display: 'flex', justifyContent: 'center' }}>
-      <Masonry columns={columns} spacing={spacing} style={{ margin: '0 auto' }}>
+    <Box sx={{ width: {
+      xs: "100%", 
+      md: "85%", 
+      lg: "70%", 
+    },  minHeight: 400, display: 'flex', justifyContent: 'center' }}>
+      <Masonry columns={columns} spacing={spacing}>
         {children}
       </Masonry>
     </Box>

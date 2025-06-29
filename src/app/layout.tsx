@@ -5,6 +5,7 @@ import { ClientProviders } from "./context/ClientProvider";
 
 import ThemeRegistry from "./theme/ThemeRegistry";
 import "./globals.css";
+import { CssBaseline } from "@mui/material";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ClientProviders>
-          <ThemeRegistry>{children}</ThemeRegistry>
+          <ThemeRegistry>
+            <CssBaseline />
+            {children}
+            </ThemeRegistry>
         </ClientProviders>
       </body>
     </html>

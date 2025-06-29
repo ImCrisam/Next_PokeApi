@@ -42,10 +42,10 @@ export default function Home() {
       <BottomDrawer>
         <PokemonTable />
       </BottomDrawer>
-      <main >
+      <main style={{ width: '100%', minHeight: '100vh', padding: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <MasonryGrid>
             {pokemons.map((pokemon) => (
-              <Box key={pokemon.id} sx={{margin:0, padding:0}}>
+              <Box key={pokemon.id} >
               <PokemonCard  pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} />
               </Box >
             ))}
