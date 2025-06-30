@@ -29,7 +29,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX;
-
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
@@ -73,7 +72,8 @@ export default function RootLayout({
 function ThemeInfo({ children }: { children: React.ReactNode }) {
   const theme = useTheme();
   const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX;
-
+  
+  
   useEffect(() => {
     const body = document.body;
     if (theme.palette.mode === "dark") {
