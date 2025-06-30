@@ -4,6 +4,8 @@ import SortButtons from "./SortButtons";
 import { TableHead, TableRow } from "@mui/material";
 import { SortField, SortOrder } from "../utils/filterAndSorts";
 import ImageIcon from '@mui/icons-material/Image';
+import PickerTypes from "../component/PickerTypes";
+import PickerTypesButton from "../component/PickerTypesButton";
 interface Props {
   onSort: (field: SortField, order: SortOrder) => void;
   setFilteredTypes: (types: string[]) => void;
@@ -50,7 +52,7 @@ export default function PokemonTableHead({ onSort, setFilteredTypes }: Props) {
           />
         </TableHeaderWithFilter>
         <TableHeaderWithFilter label="Tipo">
-          <TypeFilterAutocomplete onFilterChange={setFilteredTypes} />
+          <PickerTypesButton/>
         </TableHeaderWithFilter>
         <TableHeaderWithFilter label="Peso (kg)">
           <SortButtons

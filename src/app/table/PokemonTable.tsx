@@ -8,7 +8,7 @@ import PokemonTableBody from "./PokemonTableBody";
 import { Pokemon } from "../types/Pokemon";
 
 export default function CustomPokemonTable() {
-  const { pokemons, filterTypes, sort } = usePokemonContext();
+  const { pokemons, filterTypes, sort, selectedPokemon } = usePokemonContext();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -60,7 +60,7 @@ export default function CustomPokemonTable() {
                 setFilteredTypes={filterTypes.set}
               />
               <PokemonTableBody pokemons={paginatedPokemons} onClickRow={function (pokemon: Pokemon): void {
-            throw new Error("Function not implemented.");
+             selectedPokemon.set(pokemon)
           } } />
             </Table>
           </TableContainer>

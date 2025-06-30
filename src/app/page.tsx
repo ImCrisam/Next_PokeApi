@@ -13,10 +13,10 @@ import PokemonCryPlayer from "./component/PokemonCryPlayer";
 import { Pokemon } from "./types/Pokemon";
 import MasonryGrid from "./grid/MasonryGrid";
 import Header from "./component/Header";
+import PokemonDetailModal from "./component/PokemonDetailModal";
 
 export default function Home() {
-  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-  const { pokemons, isLoading, error } = usePokemonContext();
+  const { pokemons, selectedPokemon } = usePokemonContext();
 
   return (
     <Box
@@ -30,22 +30,12 @@ export default function Home() {
         paddingBlock: "2rem",
         paddingInline: "2rem"
       }}>
-      <Header></Header>
+      <Header />
       {/* <DebouncedSlider onChange={function (value: number): void {
         throw new Error("Function not implemented.");
       }}></DebouncedSlider> */}
 
-
-      <ModalComponent open={!!selectedPokemon} onClose={() => setSelectedPokemon(null)}>
-        {selectedPokemon && (
-          <Box sx={{ position: 'relative' }}>
-            <PokemonDetailCard pokemon={selectedPokemon} />
-            <Box sx={{ position: 'absolute', top: 16, right: 16, zIndex: 10 }}>
-              <PokemonCryPlayer url={selectedPokemon.cry_latest} playOnMount={true} />
-            </Box>
-          </Box>
-        )}
-      </ModalComponent>
+      <PokemonDetailModal />
       <BottomDrawer>
         <PokemonTable />
       </BottomDrawer>
@@ -59,7 +49,7 @@ export default function Home() {
       }}>
         <MasonryGrid>
           {pokemons.map((pokemon) => (
-              <PokemonCard key={pokemon.id} pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} />
+              <PokemonCard key={pokemon.id} pokemon={pokemon} onClick={() => selectedPokemon.set(pokemon)} />
           ))}
         </MasonryGrid>
       </main>

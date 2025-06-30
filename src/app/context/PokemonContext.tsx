@@ -31,6 +31,10 @@ type PokemonContextType = {
     types: { type: { name: string } }[],
     options?: { deg?: number; opacity?: number }
   ) => { withOpacity: string; noOpacity: string };
+  selectedPokemon: {
+    value: Pokemon | null;
+    set: React.Dispatch<React.SetStateAction<Pokemon | null>>;
+  };
 };
 
 const PokemonContext = createContext<PokemonContextType | undefined>(undefined);
@@ -46,6 +50,7 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
   const [sortField, setSortField] = useState<keyof Pokemon>("id");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [searchName, setSearchName] = useState("");
+  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
 
   // Memo para filtrar, buscar y ordenar
   const filteredPokemons = useMemo(() => {
@@ -69,6 +74,10 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
   const search = {
     value: searchName,
     set: setSearchName,
+  };
+  const selectedPokemonState = {
+    value: selectedPokemon,
+    set: setSelectedPokemon,
   };
 
   // Función para limpiar todos los filtros y búsqueda
@@ -118,7 +127,8 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
       sort,
       search,
       clearFilters,
-      getTypeGlassBackground
+      getTypeGlassBackground,
+      selectedPokemon: selectedPokemonState,
     }}>
       {children}
     </PokemonContext.Provider>
