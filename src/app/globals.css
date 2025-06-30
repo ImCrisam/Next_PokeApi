@@ -1,21 +1,6 @@
-@font-face {
-  font-family: 'Pokemon Solid';
-  src: url('/fonts/Pokemon Solid.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Pokemon Hollow';
-  src: url('/fonts/Pokemon Hollow.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
-  font-family: 'Pokemon Solid', Arial, Helvetica, sans-serif;
-  background-image: image-set(url('/bg/bg_avif.avif') type('image/avif'),
-      url('/bg/bg_jpg.jpg') type('image/jpeg'));
+  background-image: image-set(url('${basePath}/bg_avif.avif') type('image/avif'),
+      url('${basePath}/bg_jpg.jpg') type('image/jpeg'));
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
