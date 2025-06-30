@@ -40,7 +40,7 @@ export const colours = {
 	dark_flying: '#4B3A7B',
 
 	psychic: '#F95587',
-	light_psychic: '##F97987',
+	light_psychic: '#F97987',
 	dark_psychic: '#7B294A',
 
 	bug: '#A6B91A',
