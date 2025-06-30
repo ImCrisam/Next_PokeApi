@@ -28,11 +28,27 @@ export function pokemonAdapter(raw: any): Pokemon {
 
   // Stats aplanadas
   hp: statsMap.hp ?? 0,
+
+  // Stats aplanados
   attack: statsMap.attack ?? 0,
   defense: statsMap.defense ?? 0,
   special_attack: statsMap.special_attack ?? 0,
   special_defense: statsMap.special_defense ?? 0,
   speed: statsMap.speed ?? 0,
+  stat_max: Math.max(
+    statsMap.attack ?? 0,
+    statsMap.defense ?? 0,
+    statsMap.special_attack ?? 0,
+    statsMap.special_defense ?? 0,
+    statsMap.speed ?? 0
+  ),
+  stat_min: Math.min(
+    statsMap.attack ?? 0,
+    statsMap.defense ?? 0,
+    statsMap.special_attack ?? 0,
+    statsMap.special_defense ?? 0,
+    statsMap.speed ?? 0
+  ),
 
   // Arrays originales
   abilities: raw.abilities ?? [],

@@ -1,4 +1,4 @@
-import { Button, TableBody, TableCell, TableRow } from "@mui/material";
+import { Button, colors, TableBody, TableCell, TableRow } from "@mui/material";
 import { Pokemon } from "../types/Pokemon";
 import Image from "next/image";
 import { usePokemonContext } from "../context/PokemonContext";
@@ -11,10 +11,39 @@ interface Props {
 
 export default function PokemonTableBody({ pokemons, onClickRow }: Props) {
   const { getTypeGlassBackground } = usePokemonContext();
+
+
+ const statMaxStyle = {
+  boxShadow: 'inset 0 2px 12px 0 #299250, 0 0 4px rgba(0,0,0,0.3)',
+  backgroundColor: "rgba(41, 146, 80, 0.1)",
+  fontWeight: 500,
+  textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
+};
+
+const statMinStyle = {
+  boxShadow: 'inset 0 2px 12px 0 #ef4444, 0 0 4px rgba(0,0,0,0.3)',
+  backgroundColor: "rgba(239, 68, 68, 0.1)",
+  fontWeight: 500,
+  textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
+};
+
+
+
+  const getStatCellStyle = (value: number, max: number, min: number) => {
+    if (value === max) {
+      return statMaxStyle;
+    } else if (value === min) {
+      return statMinStyle;
+    } else {
+      return {};
+    }
+  };
+
   return (
     <TableBody>
       {pokemons.map((p) => {
         const background = getTypeGlassBackground(p.types, { deg: 180, opacity: 30 });
+        const backgroundHover = getTypeGlassBackground(p.types, { deg: 180, opacity: 99 });
         return(
         <TableRow
           key={p.id}
@@ -25,10 +54,11 @@ export default function PokemonTableBody({ pokemons, onClickRow }: Props) {
             background: background.withOpacity,
             borderBottom: 0,
             '&:hover': {
-              background: background.noOpacity,
+              background: backgroundHover.withOpacity,
             },
             '& td': {
               borderBottom: 0,
+              margin: "5px",
             },
 
           }}
@@ -48,15 +78,15 @@ export default function PokemonTableBody({ pokemons, onClickRow }: Props) {
           <TableCell>
             {p.types.map((t) => t.type.name).join(", ")}
           </TableCell>
-          <TableCell>{p.weight}</TableCell>
+          <TableCell sx={getStatCellStyle(p.weight, p.stat_max, p.stat_min)}>{p.weight}</TableCell>
           <TableCell>{p.height}</TableCell>
           <TableCell>{p.hp}</TableCell>
           <TableCell>{p.base_experience}</TableCell>
-          <TableCell>{p.attack}</TableCell>
-          <TableCell>{p.defense}</TableCell>
-          <TableCell>{p.special_attack}</TableCell>
-          <TableCell>{p.special_defense}</TableCell>
-          <TableCell>{p.speed}</TableCell>
+          <TableCell sx={getStatCellStyle(p.attack, p.stat_max, p.stat_min)}>{p.attack}</TableCell>
+          <TableCell sx={getStatCellStyle(p.defense, p.stat_max, p.stat_min)}>{p.defense}</TableCell>
+          <TableCell sx={getStatCellStyle(p.special_attack, p.stat_max, p.stat_min)}>{p.special_attack}</TableCell>
+          <TableCell sx={getStatCellStyle(p.special_defense, p.stat_max, p.stat_min)}>{p.special_defense}</TableCell>
+          <TableCell sx={getStatCellStyle(p.speed, p.stat_max, p.stat_min)}>{p.speed}</TableCell>
           <TableCell>
             <Button
               onClick={e => { e.stopPropagation(); onClickRow(p); }}

@@ -1,6 +1,6 @@
 export const colours = {
 	normal: '#A8A77A',
-	fire: '#EE8130',
+	fire: '#DE792C',
 	water: '#6390F0',
 	electric: '#F7D02C',
 	grass: '#7AC74C',

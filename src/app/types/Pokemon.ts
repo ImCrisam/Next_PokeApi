@@ -42,7 +42,8 @@ export interface Pokemon {
   special_attack: number;
   special_defense: number;
   speed: number;
-
+  stat_max:number;
+  stat_min:number;
   // Arrays originales
   abilities: {
     ability: {
