@@ -22,7 +22,7 @@ export default function PokemonDetailCard({ pokemon }: Props) {
   
   return (
     <Card
-      sx={{ maxWidth: 400, m: "auto", borderRadius: 3, boxShadow: 4, p: 2, background: getTypeGlassBackground(pokemon.types, { deg: 135 }) }}
+      sx={{ maxWidth: 400, m: "auto", borderRadius: 3, boxShadow: 4, p: 2, background: getTypeGlassBackground(pokemon.types, { deg: 135 }, "lite") }}
     >
       <Box
         sx={{

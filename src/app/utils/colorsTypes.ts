@@ -23,7 +23,7 @@ export const colours = {
 	lite_ice: '#D6F6F6',
 	dark_ice: '#3A6C6A',
 
-	fighting: '#C22E28',
+	fighting: '#D1312C',
 	lite_fighting: '#F5A6A3',
 	dark_fighting: '#6B1815',
 

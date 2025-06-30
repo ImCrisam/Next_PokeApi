@@ -1,8 +1,18 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode, useMemo } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useMemo,
+} from "react";
 import { Pokemon, PokemonTypeInfo } from "../types/Pokemon";
-import { searchByName, filterByTypes, sortByField } from "../utils/filterAndSorts";
+import {
+  searchByName,
+  filterByTypes,
+  sortByField,
+} from "../utils/filterAndSorts";
 
 import { usePokemonTypes } from "../hooks/usePokemonTypes";
 
@@ -32,8 +42,9 @@ type PokemonContextType = {
 
   clearFilters: () => void;
   getTypeGlassBackground: (
-    types: { type: PokemonTypeInfo }[] ,
-    options?: { deg?: number; opacity?: number }
+    types: { type: PokemonTypeInfo }[],
+    options?: { deg?: number; opacity?: number },
+    varian?: "dark" | "lite"
   ) => string;
 };
 
@@ -53,7 +64,7 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
 
   // Memo para filtrar, buscar y ordenar
   const filteredPokemons = useMemo(() => {
-    let result = filterByTypes(allPokemoms,filteredTypes );
+    let result = filterByTypes(allPokemoms, filteredTypes);
     result = searchByName(result, searchName);
     result = sortByField(result, sortField, sortOrder);
     return result;
@@ -90,34 +101,56 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
   // Función para obtener el background glass de tipos
   const getTypeGlassBackground = (
     types: { type: PokemonTypeInfo }[] = [],
-    options?: { deg?: number; opacity?: number }
-  ):string => {
-    const theme:"lite"| "dark" = "dark" // cambio de thema con el contexto de theme
+    options?: { deg?: number; opacity?: number },
+    varian?: "dark" | "lite"
+  ): string => {
+    const theme: "lite" | "dark" = "lite"; // cambio de thema con el contexto de theme
     const deg = options?.deg ?? 135;
     const opacity = options?.opacity ?? "";
-    const alterColor = theme === "dark" ? types[0].type.darkColor : types[0].type.liteColor;
-    if (types.length === 1) {
-      return `linear-gradient(${deg}deg, ${types[0].type.color+opacity}, ${alterColor!+opacity})`;
-    } else if (types.length > 1) {
-      return `linear-gradient(${deg}deg, ${types[0].type.color+opacity}, ${types[1].type.color+opacity})`;
+    const isDouTypes = types.length > 1
+    let alterColor = types[0].type.liteColor;
+
+    let color1 = types[0].type.color + opacity;
+    let color2 = types[1]?.type.color + opacity;
+
+    if (varian) {
+      alterColor = types[0].type.color;
+      color1 =
+        varian == "lite"
+          ? types[0].type.liteColor! + opacity
+          : types[0].type.darkColor! + opacity;
+      if (isDouTypes) {
+        color2 =
+          varian == "lite"
+            ? types[1].type.liteColor! + opacity
+            : types[1].type.darkColor! + opacity;
+      }
+    }
+
+    if (!isDouTypes) {
+      return `linear-gradient(${deg}deg, ${color1}, ${alterColor!})`;
+    } else if (isDouTypes) {
+      return `linear-gradient(${deg}deg, ${color1}, ${color2})`;
     } else {
       return "#e5e7eb";
     }
   };
 
   return (
-    <PokemonContext.Provider value={{
-      pokemons: filteredPokemons,
-      types,
-      isLoading,
-      error,
-      filterTypes,
-      sort,
-      search,
-      clearFilters,
-      getTypeGlassBackground,
-      selectedPokemon: selectedPokemonState,
-    }}>
+    <PokemonContext.Provider
+      value={{
+        pokemons: filteredPokemons,
+        types,
+        isLoading,
+        error,
+        filterTypes,
+        sort,
+        search,
+        clearFilters,
+        getTypeGlassBackground,
+        selectedPokemon: selectedPokemonState,
+      }}
+    >
       {children}
     </PokemonContext.Provider>
   );
@@ -126,7 +159,9 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
 export function usePokemonContext(): PokemonContextType {
   const context = useContext(PokemonContext);
   if (!context) {
-    throw new Error("usePokemonContext debe usarse dentro de un PokemonProvider");
+    throw new Error(
+      "usePokemonContext debe usarse dentro de un PokemonProvider"
+    );
   }
   return context;
 }
