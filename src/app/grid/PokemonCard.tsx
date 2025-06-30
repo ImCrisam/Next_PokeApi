@@ -29,7 +29,7 @@ export function PokemonCard({ pokemon, onClick }: Props) {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        background: background.withOpacity,
+        background: background,
       }}
     >
       <Box sx={{ position: "absolute", top: 8, left: 8 }}>

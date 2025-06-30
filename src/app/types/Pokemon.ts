@@ -58,11 +58,17 @@ export interface Pokemon {
     type: {
       name: string;
       url: string;
+      color: string;
+      liteColor: string; 
+      darkColor: string;
     };
   }[];
 }
 
+
 export interface PokemonTypeInfo {
-    nameLocal: string;
-    color: string;
+  name: string;
+  color: string;
+  liteColor?: string;
+  darkColor?: string;
 }

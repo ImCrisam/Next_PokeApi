@@ -1,4 +1,5 @@
 import { Pokemon } from "../types/Pokemon";
+import { colours, getColor } from "../utils/colorsTypes";
 
 export function pokemonAdapter(raw: any): Pokemon {
   // Extraer stats aplanados
@@ -51,20 +52,26 @@ export function pokemonAdapter(raw: any): Pokemon {
   ),
 
   // Arrays originales
-  abilities: raw.abilities ?? [],
-  types: raw.types ?? [],
-
-  sprite_front_female: null,
-  sprite_front_shiny_female: null,
-
-  sprite_home_female: null,
-  sprite_home_shiny_female: null,
+  types: raw.types.map(({ slot, type }: any) => ({
+    slot: slot ?? 0,
+    type: {
+      name: type?.name ?? "",
+      url: type?.url ?? "",
+      color: getColor(type?.name ?? ""),
+      liteColor: getColor(type?.name ?? "", "lite"),
+      darkColor: getColor(type?.name ?? "", "dark"),
+    }
+  })),
 
     // Sprites principales
   sprite_front_default: raw.sprites?.front_default ?? null,
+  sprite_front_female: raw.sprites?.front_female ?? null,
   sprite_front_shiny: raw.sprites?.front_shiny ?? null,
+  sprite_front_shiny_female: raw.sprites?.front_shiny_female ?? null,
   sprite_home_default: raw.sprites?.other?.home?.front_default ?? null,
+  sprite_home_female: raw.sprites?.other?.home?.front_female ?? null,
   sprite_home_shiny: raw.sprites?.other?.home?.front_shiny ?? null,
+  sprite_home_shiny_female: raw.sprites?.other?.home?.front_shiny_female ?? null,
   sprite_official_artwork_default: raw.sprites?.other?.["official-artwork"]?.front_default ?? null,
   sprite_official_artwork_shiny: raw.sprites?.other?.["official-artwork"]?.front_shiny ?? null,
   sprite_dream_world_default: raw.sprites?.other?.["dream_world"]?.front_default??null,
@@ -77,7 +84,19 @@ export function pokemonAdapter(raw: any): Pokemon {
   sprite_generation_iv_diamond_pearl_front_female: raw.sprites?.versions?.["generation-iv"]?.front_female??null,
   sprite_generation_iv_diamond_pearl_front_shiny: raw.sprites?.versions?.["generation-iv"]?.front_shiny??null,
   sprite_generation_iv_diamond_pearl_front_shiny_female: raw.sprites?.versions?.["generation-iv"]?.front_shiny_female??null,
-  sprite_generation_viii_icons_front_default: raw.sprites?.versions?.["generation-viii"]?.front_default??null
+  sprite_generation_viii_icons_front_default: raw.sprites?.versions?.["generation-viii"]?.front_default??null,
+
+  // Abilities
+  abilities: Array.isArray(raw.abilities)
+    ? raw.abilities.map((a: any) => ({
+        ability: {
+          name: a.ability?.name ?? "",
+          url: a.ability?.url ?? ""
+        },
+        is_hidden: a.is_hidden ?? false,
+        slot: a.slot ?? 0
+      }))
+    : []
  
 };
 }

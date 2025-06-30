@@ -51,10 +51,10 @@ const statMinStyle = {
           hover
           sx={{
             cursor: "pointer",
-            background: background.withOpacity,
+            background: background,
             borderBottom: 0,
             '&:hover': {
-              background: backgroundHover.withOpacity,
+              background: backgroundHover,
             },
             '& td': {
               borderBottom: 0,

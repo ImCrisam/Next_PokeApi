@@ -18,9 +18,11 @@ interface Props {
 
 export default function PokemonDetailCard({ pokemon }: Props) {
   const { getTypeGlassBackground, types } = usePokemonContext();
+  console.log( getTypeGlassBackground(pokemon.types, { deg: 135, opacity: 100 }));
+  
   return (
     <Card
-      sx={{ maxWidth: 400, m: "auto", borderRadius: 3, boxShadow: 4, p: 2, background: getTypeGlassBackground(pokemon.types, { deg: 135, opacity: 80 }).noOpacity }}
+      sx={{ maxWidth: 400, m: "auto", borderRadius: 3, boxShadow: 4, p: 2, background: getTypeGlassBackground(pokemon.types, { deg: 135 }) }}
     >
       <Box
         sx={{
@@ -37,9 +39,18 @@ export default function PokemonDetailCard({ pokemon }: Props) {
           height={120}
           style={{ objectFit: "contain" }}
         />
-        <Typography
-          variant="h5"
-          sx={{ textTransform: "capitalize", mt: 1, fontWeight: 700 }}
+         <Typography
+          variant="subtitle1"
+          sx={{
+            textAlign: "center",
+            textTransform: "capitalize",
+            mt: 1,
+            fontWeight: 600,
+            fontSize: "1.5rem",
+            color: "#1f2937",
+            fontFamily:
+              "Pokemon Hollow, Pokemon Solid, Arial, Helvetica, sans-serif",
+          }}
         >
           {pokemon.name}
         </Typography>

@@ -21,8 +21,8 @@ export function usePokemonTypes() {
                     p.types.forEach((t) => {
                         if (!allTypes.has(t.type.name)) {
                             allTypes.set(t.type.name, {
-                                nameLocal: t.type.name, // Puedes traducir aquí si tienes un diccionario
-                                color: colours[t.type.name as keyof typeof colours] || '#e5e7eb',
+                                name: t.type.name, // Puedes traducir aquí si tienes un diccionario
+                                color: t.type.color,
                             });
                         }
                     });

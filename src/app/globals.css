@@ -13,7 +13,7 @@ body {
 
 .table-row:hover {
   transform: translateY(-2px);
-  transition: transform 0.5s;
+  transition: transform 0.4s;
 }
 
 .card {
@@ -23,7 +23,7 @@ body {
 }
 .card:hover {
    transform: translateY(-12px);
-  transition: transform 0.5s;
+  transition: transform 0.2s;
    backdrop-filter: blur(80px);
 }
 
