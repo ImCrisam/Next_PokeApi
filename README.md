@@ -71,5 +71,37 @@
 - [ImCrisam](https://github.com/ImCrisam)
 
 ---
+## 📸 Capturas de pantalla
+
+### 🌓 Vista Grid (Modo oscuro)
+![Vista Grid - Dark](./README/grid_cel_dark.jpg)
+
+### 🧱 Vista Grid (Layout general)
+![Vista Grid - General](./README/grid_cel.jpg)
+
+### 🔍 Vista Grid + Filtro por tipo
+![Vista Grid - Filtro por tipo](./README/grid_cel_filter.jpg)
+![Vista Grid - Filtro por tipo múltiple](./README/grid_cel_filter2.jpg)
+
+### 📋 Vista Grid + Modal de detalles
+![Vista Grid - Detalles](./README/grid_cel_details.jpg)
+
+---
+
+### 🌓 Vista Tabla (Modo oscuro)
+![Vista Tabla - Dark](./README/grid_pc_dark.jpg)
+
+### 📋 Vista Tabla (Layout general)
+![Vista Tabla - General](./README/grid_pc.jpg)
+
+### 🔍 Vista Tabla + Filtro por tipo
+![Vista Tabla - Filtro por tipo](./README/grid_pc_filter.jpg)
+![Vista Tabla - Filtro por tipo múltiple](./README/grid_pc_filter2.jpg)
+
+### 📋 Vista Tabla + Modal de detalles
+![Vista Tabla - Detalles](./README/grid_pc_details.jpg)
+
+### 📑 Vista Tabla - Paginación y ordenamiento
+![Vista Tabla - Table](./README/grid_pc_table.jpg)
 
 ¡Gracias por revisar este proyecto! Si tienes feedback o sugerencias, no dudes en abrir un issue o un pull request.
