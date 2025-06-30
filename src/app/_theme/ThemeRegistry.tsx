@@ -1,5 +1,5 @@
 "use client";
-import { ThemeProvider, CssBaseline } from "@mui/material";
+import { ThemeProvider, CssBaseline, Button } from "@mui/material";
 import { useState, useMemo, ReactNode } from "react";
 import lightTheme from "./lightTheme";
 import darkTheme from "./darkTheme";
@@ -9,10 +9,9 @@ export default function ThemeRegistry({ children }: { children: ReactNode }) {
   const theme = useMemo(() => (mode === "dark" ? darkTheme : lightTheme), [mode]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <ThemeProvider theme={theme} noSsr defaultMode="system">
       {children}
-      <button
+      <Button
         style={{
           position: "fixed",
           zIndex: 9999,
@@ -21,7 +20,7 @@ export default function ThemeRegistry({ children }: { children: ReactNode }) {
         onClick={() => setMode(mode === "light" ? "dark" : "light")}
       >
         Cambiar modo
-      </button>
+      </Button>
     </ThemeProvider>
   );
 }

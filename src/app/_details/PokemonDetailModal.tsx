@@ -1,8 +1,8 @@
-import ModalComponent from "./Modal";
-import PokemonDetailCard from "../grid/PokemonDetailCard";
-import PokemonCryPlayer from "./PokemonCryPlayer";
+import ModalComponent from "../_common/component/layers/Modal";
+import PokemonDetailCard from "./PokemonDetailCard";
+import PokemonCryPlayer from "../_common/component/PokemonCryPlayer";
 import { Box } from "@mui/material";
-import { usePokemonContext } from "../context/PokemonContext";
+import { usePokemonContext } from "../_context/PokemonContext";
 
 export default function PokemonDetailModal() {
   const { selectedPokemon } = usePokemonContext();

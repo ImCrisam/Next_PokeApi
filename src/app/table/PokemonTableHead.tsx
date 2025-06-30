@@ -1,11 +1,9 @@
 import TableHeaderWithFilter from "./TableHeaderWithFilter";
-import TypeFilterAutocomplete from "./TypeFilterAutocomplete";
-import SortButtons from "./SortButtons";
+import SortButtons from "../_common/component/SortButtons";
 import { TableHead, TableRow } from "@mui/material";
-import { SortField, SortOrder } from "../utils/filterAndSorts";
+import { SortField, SortOrder } from "../_common/utils/filterAndSorts";
 import ImageIcon from '@mui/icons-material/Image';
-import PickerTypes from "../component/PickerTypes";
-import PickerTypesButton from "../component/PickerTypesButton";
+import PickerTypesButton from "./PickerTypesTable";
 interface Props {
   onSort: (field: SortField, order: SortOrder) => void;
   setFilteredTypes: (types: string[]) => void;

@@ -1,15 +1,10 @@
 'use client';
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import ChipType from "../grid/ChipType";
-import TypePopper from "./TypePopper";
-import { useRef, useState, useEffect } from "react";
-import { usePokemonContext } from "../context/PokemonContext";
-
-interface TypeInfo {
-  nameLocal: string;
-  color: string;
-}
+import ChipType from "../../../_common/component/ChipType";
+import TypePopper from "../../../_common/component/layers/TypePopper";
+import { useRef, useState } from "react";
+import { usePokemonContext } from "../../../_context/PokemonContext";
 
 interface PickerTypesProps {
   maxSelected?: number;
@@ -46,7 +41,7 @@ export default function PickerTypes({
         const type = types.get(typeKey);
         if (!type) return null;
         return (
-          <ChipType key={typeKey} name={type.nameLocal} color={type.color} onClick={() => filterTypes.set(filterTypes.value.filter((t) => t !== typeKey))} />
+          <ChipType key={typeKey} name={type.name} color={type.color} onClick={() => filterTypes.set(filterTypes.value.filter((t) => t !== typeKey))} />
         );
       })}
       <TypePopper

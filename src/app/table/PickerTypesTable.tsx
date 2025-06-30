@@ -1,10 +1,10 @@
 "use client";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import ChipType from "../grid/ChipType";
-import TypePopper from "./TypePopper";
+import ChipType from "../_common/component/ChipType";
+import TypePopper from "../_common/component/layers/TypePopper";
 import { useRef, useState } from "react";
-import { usePokemonContext } from "../context/PokemonContext";
+import { usePokemonContext } from "../_context/PokemonContext";
 
 export default function PickerTypesButton({
   maxSelected = 2,

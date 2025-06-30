@@ -7,14 +7,14 @@ import React, {
   ReactNode,
   useMemo,
 } from "react";
-import { Pokemon, PokemonTypeInfo } from "../types/Pokemon";
+import { Pokemon, PokemonTypeInfo } from "../_types/Pokemon";
 import {
   searchByName,
   filterByTypes,
   sortByField,
-} from "../utils/filterAndSorts";
+} from "../_common/utils/filterAndSorts";
 
-import { usePokemonTypes } from "../hooks/usePokemonTypes";
+import { usePokemonTypes } from "../_common/hooks/usePokemonTypes";
 
 type PokemonContextType = {
   pokemons: Pokemon[];

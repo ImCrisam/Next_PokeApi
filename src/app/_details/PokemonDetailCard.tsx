@@ -7,10 +7,10 @@ import {
   Divider,
 } from "@mui/material";
 import Image from "next/image";
-import { Pokemon } from "../types/Pokemon";
-import PokemonCryPlayer from "../component/PokemonCryPlayer";
-import ChipType from "./ChipType";
-import { usePokemonContext } from "../context/PokemonContext";
+import { Pokemon } from "../_types/Pokemon";
+import PokemonCryPlayer from "../_common/component/PokemonCryPlayer";
+import ChipType from "../_common/component/ChipType";
+import { usePokemonContext } from "../_context/PokemonContext";
 
 interface Props {
   pokemon: Pokemon;

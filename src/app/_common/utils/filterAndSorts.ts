@@ -1,4 +1,4 @@
-import { Pokemon } from "../types/Pokemon";
+import { Pokemon } from "../../_types/Pokemon";
 
 export type SortOrder = "asc" | "desc";
 export type SortField = keyof Pokemon;

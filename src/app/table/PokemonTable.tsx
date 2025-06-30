@@ -1,11 +1,11 @@
 'use client'
 import { useState } from "react";
 import { Paper, TableContainer, TablePagination, Table } from "@mui/material";
-import { usePokemonContext } from "../context/PokemonContext";
-import { SortOrder, SortField } from "../utils/filterAndSorts";
+import { usePokemonContext } from "../_context/PokemonContext";
+import { SortOrder, SortField } from "../_common/utils/filterAndSorts";
 import PokemonTableHead from "./PokemonTableHead";
 import PokemonTableBody from "./PokemonTableBody";
-import { Pokemon } from "../types/Pokemon";
+import { Pokemon } from "../_types/Pokemon";
 
 export default function CustomPokemonTable() {
   const { pokemons, filterTypes, sort, selectedPokemon } = usePokemonContext();

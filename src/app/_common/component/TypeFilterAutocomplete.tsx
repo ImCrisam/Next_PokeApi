@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { usePokemonContext } from "../context/PokemonContext";
+import { usePokemonContext } from "../../_context/PokemonContext";
 import { Autocomplete, TextField } from "@mui/material";
 
 interface TypeFilterAutocompleteProps {

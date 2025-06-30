@@ -7,6 +7,7 @@ const darkTheme = createTheme({
     background: {
       default: "#181825",
       paper: "rgba(30,41,59,0.35)",
+      
     },
   },
 });

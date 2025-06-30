@@ -1,4 +1,4 @@
-import { Pokemon } from "../types/Pokemon";
+import { Pokemon } from "../../_types/Pokemon";
 import { colours, getColor } from "../utils/colorsTypes";
 
 export function pokemonAdapter(raw: any): Pokemon {

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { fetchAllPokemons } from "../services/pokemonService";
 import { colours } from "../utils/colorsTypes";
-import { Pokemon, PokemonTypeInfo } from "../types/Pokemon";
+import { Pokemon, PokemonTypeInfo } from "../../_types/Pokemon";
 
 
 

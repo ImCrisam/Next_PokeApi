@@ -3,10 +3,10 @@ import ClickAwayListener from "@mui/material/ClickAwayListener";
 import Popper from "@mui/material/Popper";
 import { useTheme } from "@mui/material/styles";
 import { Grid } from "@mui/material";
-import ChipType from "../grid/ChipType";
+import ChipType from "../ChipType";
 
 interface TypeInfo {
-  nameLocal: string;
+  name: string;
   color: string;
 }
 
@@ -61,7 +61,7 @@ export default function TypePopper({
           {Array.from(options.entries()).map(([key, type]) => (
             <Grid key={key}>
               <ChipType
-                name={type.nameLocal}
+                name={type.name}
                 color={type.color}
                 selectable
                 size="medium"

@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Pokemon } from "../types/Pokemon";
+import { Pokemon } from "../_types/Pokemon";
 import { Card, CardContent, Typography, Box } from "@mui/material";
 import { Chip } from "@mui/material";
-import ChipType from "./ChipType";
-import { colours, PokemonType } from "../utils/colorsTypes";
-import { usePokemonContext } from "../context/PokemonContext";
+import ChipType from "../_common/component/ChipType";
+import { colours, PokemonType } from "../_common/utils/colorsTypes";
+import { usePokemonContext } from "../_context/PokemonContext";
 
 type Props = {
   pokemon: Pokemon;
