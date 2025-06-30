@@ -29,6 +29,7 @@ export default function PickerTypes({
 
   return (
     <Box sx={{ fontSize: 13, display: "flex", flexDirection: "row", gap: 1, alignItems: "center", justifyContent: "center", paddingTop: "10px" }}>
+
       <Button
         ref={anchorEl}
         disableRipple
