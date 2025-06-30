@@ -18,7 +18,7 @@ export function PokemonCard({ pokemon, onClick }: Props) {
 
   const background = getTypeGlassBackground(pokemon.types, {
     deg: 135,
-    opacity: 80,
+    opacity: 99,
   });
   return (
     <Box
@@ -56,7 +56,7 @@ export function PokemonCard({ pokemon, onClick }: Props) {
             mt: 1,
             fontWeight: 600,
             fontSize: "1.5rem",
-            color: "#1f2937",
+            color: "text.primary",
             fontFamily:
               "Pokemon Hollow, Pokemon Solid, Arial, Helvetica, sans-serif",
           }}

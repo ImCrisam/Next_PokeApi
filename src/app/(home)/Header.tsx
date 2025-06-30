@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Fade, Input, Zoom } from "@mui/material";
+import { Box, Button, Fade, Input, useTheme, Zoom } from "@mui/material";
 import React, { useState } from "react";
 import ModalComponent from "../_common/component/layers/Modal";
 import PokemonTable from "../table/PokemonTable";
@@ -7,10 +7,11 @@ import TableViewOutlinedIcon from "@mui/icons-material/TableViewOutlined";
 import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import { usePokemonContext } from "../_context/PokemonContext";
 import PickerTypes from "./PickerTypesHome";
-import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness4Icon from "@mui/icons-material/Brightness4";
 import { useThemeMode } from "../_context/ThemeContext";
 export default function Header() {
   const { search, clearFilters } = usePokemonContext();
+  const { palette } = useTheme();
   const { mode, toggleMode } = useThemeMode();
   const [open, setOpen] = useState(false);
 
@@ -57,6 +58,7 @@ export default function Header() {
         </Button>
         <Input
           placeholder="Buscar"
+          color="primary"
           value={search.value}
           onChange={(e) => search.set(e.target.value)}
           sx={{
@@ -72,6 +74,7 @@ export default function Header() {
 
             "& .MuiInput-input": {
               textAlign: "center",
+              color: palette.text.secondary,
             },
 
             "&:focus": {
@@ -95,18 +98,26 @@ export default function Header() {
           <FilterAltOffIcon />
         </Button>
       </Box>
-      <Box sx={{display:"flex", direction:"row", alignItems:"center", maxWidth:"100%", width:"100%"}}>
+      <Box
+        sx={{
+          display: "flex",
+          direction: "row",
+          alignItems: "center",
+          maxWidth: "100%",
+          width: "100%",
+        }}
+      >
         <Button
           disableRipple
           onClick={toggleMode}
-          color={mode=="light"?"secondary":"info"}
+          color={mode == "light" ? "secondary" : "info"}
         >
-          <Brightness4Icon  />
+          <Brightness4Icon />
         </Button>
-        <Box sx={{margin: "0 auto", alignItems:"center"}}>
-        <PickerTypes />
+        <Box sx={{ margin: "0 auto", alignItems: "center" }}>
+          <PickerTypes />
         </Box>
-        <Box sx={{width:"48px"}}></Box>
+        <Box sx={{ width: "48px" }}></Box>
       </Box>
     </Box>
   );

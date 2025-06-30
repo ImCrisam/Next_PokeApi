@@ -58,7 +58,7 @@ export function pokemonAdapter(raw: any): Pokemon {
       name: type?.name ?? "",
       url: type?.url ?? "",
       color: getColor(type?.name ?? ""),
-      liteColor: getColor(type?.name ?? "", "lite"),
+      lightColor: getColor(type?.name ?? "", "light"),
       darkColor: getColor(type?.name ?? "", "dark"),
     }
   })),

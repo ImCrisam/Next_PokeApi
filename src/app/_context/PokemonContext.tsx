@@ -15,6 +15,7 @@ import {
 } from "../_common/utils/filterAndSorts";
 
 import { usePokemonTypes } from "../_common/hooks/usePokemonTypes";
+import { useThemeMode } from "./ThemeContext";
 
 type PokemonContextType = {
   pokemons: Pokemon[];
@@ -44,7 +45,7 @@ type PokemonContextType = {
   getTypeGlassBackground: (
     types: { type: PokemonTypeInfo }[],
     options?: { deg?: number; opacity?: number },
-    varian?: "dark" | "lite"
+    varian?: "dark" | "light"
   ) => string;
 };
 
@@ -61,7 +62,7 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [searchName, setSearchName] = useState("");
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-
+  const { mode } = useThemeMode();
   // Memo para filtrar, buscar y ordenar
   const filteredPokemons = useMemo(() => {
     let result = filterByTypes(allPokemoms, filteredTypes);
@@ -102,33 +103,26 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
   const getTypeGlassBackground = (
     types: { type: PokemonTypeInfo }[] = [],
     options?: { deg?: number; opacity?: number },
-    varian?: "dark" | "lite"
+    varian?: "dark" | "light"
   ): string => {
-    const theme: "lite" | "dark" = "lite"; // cambio de thema con el contexto de theme
+    varian = varian || mode
     const deg = options?.deg ?? 135;
     const opacity = options?.opacity ?? "";
-    const isDouTypes = types.length > 1
-    let alterColor = types[0].type.liteColor;
+    const isDouTypes = types.length > 1;
 
     let color1 = types[0].type.color + opacity;
     let color2 = types[1]?.type.color + opacity;
 
-    if (varian) {
-      alterColor = types[0].type.color;
-      color1 =
-        varian == "lite"
-          ? types[0].type.liteColor! + opacity
-          : types[0].type.darkColor! + opacity;
-      if (isDouTypes) {
-        color2 =
-          varian == "lite"
-            ? types[1].type.liteColor! + opacity
-            : types[1].type.darkColor! + opacity;
-      }
+    if (varian=="light") {
+      color1 = types[0].type.lightColor! + opacity
+      color2 = types[1] ? types[1].type.color! + opacity:types[0].type.color! + opacity
+    }else{
+      color1 = types[0].type.darkColor! + opacity
+      color2 = types[1] ? types[1].type.darkColor! + opacity:types[0].type.darkColor! + opacity
     }
 
     if (!isDouTypes) {
-      return `linear-gradient(${deg}deg, ${color1}, ${alterColor!})`;
+      return `linear-gradient(${deg}deg, ${color1}, ${color2!})`;
     } else if (isDouTypes) {
       return `linear-gradient(${deg}deg, ${color1}, ${color2})`;
     } else {

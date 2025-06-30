@@ -13,7 +13,5 @@ export const fetchAllPokemons = async (): Promise<Pokemon[]> => {
     })
   );
 
-  console.log("Pokémons cargados:", pokemons);
-
   return pokemons;
 };

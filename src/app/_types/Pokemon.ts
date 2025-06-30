@@ -59,7 +59,7 @@ export interface Pokemon {
       name: string;
       url: string;
       color: string;
-      liteColor: string; 
+      lightColor: string; 
       darkColor: string;
     };
   }[];
@@ -69,6 +69,6 @@ export interface Pokemon {
 export interface PokemonTypeInfo {
   name: string;
   color: string;
-  liteColor?: string;
+  lightColor?: string;
   darkColor?: string;
 }

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ClientProviders } from "./_context/ClientProvider";
@@ -6,7 +6,7 @@ import { ClientProviders } from "./_context/ClientProvider";
 import ThemeRegistry from "./_theme/ThemeRegistry";
 import "./globals.css";
 import { Box, CssBaseline } from "@mui/material";
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 import { useEffect } from "react";
 
 const geistSans = Geist({
@@ -19,10 +19,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,8 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-
-              <style>{`
+        <style>{`
         @font-face {
           font-family: 'Pokemon Solid';
           src: url('${assetPrefix}/fonts/Pokemon Solid.ttf') format('truetype');
@@ -53,27 +48,23 @@ export default function RootLayout({
           );
         }
       `}</style>
-        <ClientProviders>
-          <ThemeRegistry>
+        <ThemeRegistry>
+          <ClientProviders>
             <CssBaseline />
-            <ThemeInfo>
-            {children}
-            </ThemeInfo>
-            </ThemeRegistry>
-        </ClientProviders>
+            <ThemeInfo>{children}</ThemeInfo>
+          </ClientProviders>
+        </ThemeRegistry>
       </body>
     </html>
   );
 }
-
 
 // Small component that uses the theme context
 
 function ThemeInfo({ children }: { children: React.ReactNode }) {
   const theme = useTheme();
   const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX;
-  
-  
+
   useEffect(() => {
     const body = document.body;
     if (theme.palette.mode === "dark") {
@@ -95,9 +86,5 @@ function ThemeInfo({ children }: { children: React.ReactNode }) {
     };
   }, [theme.palette.mode, assetPrefix]);
 
-  return (
-    <Box>
-      {children}
-    </Box>
-  );
+  return <Box>{children}</Box>;
 }

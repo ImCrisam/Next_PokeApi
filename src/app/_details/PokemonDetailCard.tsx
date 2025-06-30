@@ -22,7 +22,7 @@ export default function PokemonDetailCard({ pokemon }: Props) {
   
   return (
     <Card
-      sx={{ maxWidth: 400, m: "auto", borderRadius: 3, boxShadow: 4, p: 2, background: getTypeGlassBackground(pokemon.types, { deg: 135 }, "lite") }}
+      sx={{ maxWidth: 400, m: "auto", borderRadius: 3, boxShadow: 4, p: 2, background: getTypeGlassBackground(pokemon.types, { deg: 135 }) }}
     >
       <Box
         sx={{
@@ -41,13 +41,13 @@ export default function PokemonDetailCard({ pokemon }: Props) {
         />
          <Typography
           variant="subtitle1"
+          color="text.primary"
           sx={{
             textAlign: "center",
             textTransform: "capitalize",
             mt: 1,
             fontWeight: 600,
             fontSize: "1.5rem",
-            color: "#1f2937",
             fontFamily:
               "Pokemon Hollow, Pokemon Solid, Arial, Helvetica, sans-serif",
           }}
