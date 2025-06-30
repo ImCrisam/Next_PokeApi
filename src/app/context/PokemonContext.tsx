@@ -49,7 +49,7 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
 
   // Memo para filtrar, buscar y ordenar
   const filteredPokemons = useMemo(() => {
-    let result = filterByTypes(allPokemoms, filteredTypes);
+    let result = filterByTypes(allPokemoms,filteredTypes );
     result = searchByName(result, searchName);
     result = sortByField(result, sortField, sortOrder);
     return result;

@@ -9,7 +9,7 @@ interface MasonryGridProps {
   spacing?: number | { xs?: number; sm?: number; md?: number; lg?: number; xl?: number };
 }
 
-export default function MasonryGrid({ children, columns = { xs: 1, sm: 2, md: 3, lg: 4, xl: 5 }, spacing = { xs: 1, sm: 3, md: 5, lg: 5, xl: 5 } }: MasonryGridProps) {
+export default function MasonryGrid({ children, columns = { xs: 1, sm: 2, md: 3, lg: 4, xl: 5 }, spacing = { xs: 1, sm: 3, md: 5, lg: 5, xl: 8 } }: MasonryGridProps) {
   return (
     <Box sx={{ width: {
       xs: "100%", 

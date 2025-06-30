@@ -63,7 +63,7 @@ export default function Header() {
                     sx={{
                         py: 0.3,
                         px: "auto",
-                        width: 320,
+                        maxWidth: 320,
                         borderRadius: 10,
                         border: "2px solid #bbf7d0",
                         background: "rgba(255,255,255,0.9)",

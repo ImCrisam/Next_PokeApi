@@ -59,9 +59,7 @@ export default function Home() {
       }}>
         <MasonryGrid>
           {pokemons.map((pokemon) => (
-            <Box key={pokemon.id} >
-              <PokemonCard pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} />
-            </Box >
+              <PokemonCard key={pokemon.id} pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} />
           ))}
         </MasonryGrid>
       </main>
