@@ -60,34 +60,35 @@
 ## 📸 Capturas de pantalla
 
 ### 🌓 Vista Grid (Modo oscuro)
-![Vista Grid - Dark](./README/grid_cel_dark.jpg)
+<img src="./README/grid_cel_dark.jpg" alt="Vista Grid - Dark" height="500"/>
 
 ### 🧱 Vista Grid (Layout general)
-![Vista Grid - General](./README/grid_cel.jpg)
+<img src="./README/grid_cel.jpg" alt="Vista Grid - General" height="500"/>
 
 ### 🔍 Vista Grid + Filtro por tipo
-![Vista Grid - Filtro por tipo](./README/grid_cel_filter.jpg)
-![Vista Grid - Filtro por tipo múltiple](./README/grid_cel_filter2.jpg)
+<img src="./README/grid_cel_filter.jpg" alt="Vista Grid - Filtro por tipo" height="500"/>
+<img src="./README/grid_cel_filter2.jpg" alt="Vista Grid - Filtro por tipo múltiple" height="500"/>
 
 ### 📋 Vista Grid + Modal de detalles
-![Vista Grid - Detalles](./README/grid_cel_details.jpg)
+<img src="./README/grid_cel_details.jpg" alt="Vista Grid - Detalles" height="500"/>
 
 ---
 
 ### 🌓 Vista Tabla (Modo oscuro)
-![Vista Tabla - Dark](./README/grid_pc_dark.jpg)
+<img src="./README/grid_pc_dark.jpg" alt="Vista Tabla - Dark" width="500"/>
 
 ### 📋 Vista Tabla (Layout general)
-![Vista Tabla - General](./README/grid_pc.jpg)
+<img src="./README/grid_pc.jpg" alt="Vista Tabla - General" width="500"/>
 
 ### 🔍 Vista Tabla + Filtro por tipo
-![Vista Tabla - Filtro por tipo](./README/grid_pc_filter.jpg)
-![Vista Tabla - Filtro por tipo múltiple](./README/grid_pc_filter2.jpg)
+<img src="./README/grid_pc_filter.jpg" alt="Vista Tabla - Filtro por tipo" width="500"/>
+<img src="./README/grid_pc_filter2.jpg" alt="Vista Tabla - Filtro por tipo múltiple" width="500"/>
 
 ### 📋 Vista Tabla + Modal de detalles
-![Vista Tabla - Detalles](./README/grid_pc_details.jpg)
+<img src="./README/grid_pc_details.jpg" alt="Vista Tabla - Detalles" width="500"/>
 
 ### 📑 Vista Tabla - Paginación y ordenamiento
-![Vista Tabla - Table](./README/grid_pc_table.jpg)
+<img src="./README/grid_pc_table.jpg" alt="Vista Tabla - Table" width="500"/>
+
 
 ¡Gracias por revisar este proyecto! Si tienes feedback o sugerencias, no dudes en abrir un issue o un pull request.
