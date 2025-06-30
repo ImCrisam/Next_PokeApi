@@ -26,7 +26,7 @@ export default function ChipType({
       sx={{
         textTransform: "capitalize",
         color: selectable ? (isActive ? "white" : color) : "white",
-        bgcolor: !selectable ? color : isActive ? color : "#ffffff99",
+        bgcolor: !selectable ? color : isActive ? color : "#2D2D2D20",
         fontWeight: 600,
         fontSize: fontSize,
         cursor: selectable ? "pointer" : undefined,

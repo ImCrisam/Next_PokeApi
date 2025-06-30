@@ -96,11 +96,7 @@ export default function Header() {
                     <FilterAltOffIcon />
                 </Button>
             </Box>
-            <PickerTypes 
-                options={types}
-                value={filterTypes.value}
-                onChange={filterTypes.set}
-            />
+            <PickerTypes/>
         </Box>
     );
 }
