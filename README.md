@@ -6,9 +6,6 @@
 
 [Ver la app desplegada en GitHub Pages](https://ImCrisam.github.io/Next_PokeApi)
 
-## 📸 Captura de pantalla
-
-![Pokédex Demo](./public/demo_screenshot.png)
 
 ## 🧩 Características principales
 
@@ -38,18 +35,7 @@
    ```
 4. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-## 🌐 Despliegue en GitHub Pages
-
-1. Construye el proyecto:
-   ```sh
-   npm run build
-   ```
-2. Despliega:
-   ```sh
-   npm run deploy
-   ```
-
-> **Nota:** El despliegue en GitHub Pages requiere que la carpeta `out` esté generada por `next export` y que el repo esté público.
+> 
 
 ## 🛠️ Tecnologías usadas
 - [React](https://react.dev/)
