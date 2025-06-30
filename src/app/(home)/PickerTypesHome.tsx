@@ -1,10 +1,10 @@
 'use client';
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import ChipType from "../../../_common/component/ChipType";
-import TypePopper from "../../../_common/component/layers/TypePopper";
+import ChipType from "../_common/component/ChipType";
+import TypePopper from "../_common/component/layers/TypePopper";
 import { useRef, useState } from "react";
-import { usePokemonContext } from "../../../_context/PokemonContext";
+import { usePokemonContext } from "../_context/PokemonContext";
 
 interface PickerTypesProps {
   maxSelected?: number;

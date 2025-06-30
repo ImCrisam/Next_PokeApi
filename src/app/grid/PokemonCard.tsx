@@ -84,7 +84,7 @@ export function PokemonCard({ pokemon, onClick }: Props) {
             <ChipType
               key={t.type.name}
               name={t.type.name}
-              color={types.get(t.type.name)?.color ?? "#e5e7eb"}
+              color={t.type.color ?? "#e5e7eb"}
             />
           ))}
         </Box>

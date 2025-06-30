@@ -3,6 +3,7 @@ import { Pokemon } from "../_types/Pokemon";
 import Image from "next/image";
 import { usePokemonContext } from "../_context/PokemonContext";
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import ChipType from "../_common/component/ChipType";
 
 interface Props {
   pokemons: Pokemon[];
@@ -75,8 +76,14 @@ const statMinStyle = {
             />
           </TableCell>
           <TableCell>{p.name}</TableCell>
-          <TableCell>
-            {p.types.map((t) => t.type.name).join(", ")}
+          <TableCell >
+            {p.types.map((t) => (
+                        <ChipType
+                          key={t.type.name}
+                          name={t.type.name}
+                          color={t.type.color}
+                        />
+                      ))}
           </TableCell>
           <TableCell sx={getStatCellStyle(p.weight, p.stat_max, p.stat_min)}>{p.weight}</TableCell>
           <TableCell>{p.height}</TableCell>

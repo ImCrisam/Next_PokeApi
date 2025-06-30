@@ -7,7 +7,7 @@ import { PokemonCard } from "../grid/PokemonCard";
 import { Box } from "@mui/material";
 
 import MasonryGrid from "../grid/MasonryGrid";
-import Header from "./_common/component/Header";
+import Header from "./Header";
 import PokemonDetailModal from "../_details/PokemonDetailModal";
 
 export default function Home() {

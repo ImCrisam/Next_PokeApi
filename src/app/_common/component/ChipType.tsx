@@ -32,6 +32,7 @@ export default function ChipType({
         cursor: selectable ? "pointer" : undefined,
         transition: "all 0.2s",
         border: selectable ? `2px solid ${color}` : "none",
+        marginInline:"2px",
         textShadow: `
     -1px -1px 0 #00000060,
      1px -1px 0 #00000060,

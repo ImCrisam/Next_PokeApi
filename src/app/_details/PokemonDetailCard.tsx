@@ -59,7 +59,7 @@ export default function PokemonDetailCard({ pokemon }: Props) {
             <ChipType
               key={t.type.name}
               name={t.type.name}
-              color={types.get(t.type.name)?.color ?? "#e5e7eb"}
+              color={t.type.color ?? "#e5e7eb"}
             />
           ))}
         </Box>

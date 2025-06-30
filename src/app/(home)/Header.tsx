@@ -1,14 +1,14 @@
 "use client";
 import { Box, Button, Fade, Input, Zoom } from "@mui/material";
 import React, { useState } from "react";
-import ModalComponent from "../../../_common/component/layers/Modal";
-import PokemonTable from "../../../table/PokemonTable";
+import ModalComponent from "../_common/component/layers/Modal";
+import PokemonTable from "../table/PokemonTable";
 import TableViewOutlinedIcon from "@mui/icons-material/TableViewOutlined";
 import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
-import { usePokemonContext } from "../../../_context/PokemonContext";
+import { usePokemonContext } from "../_context/PokemonContext";
 import PickerTypes from "./PickerTypesHome";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-import { useThemeMode } from "../../../_context/ThemeContext";
+import { useThemeMode } from "../_context/ThemeContext";
 export default function Header() {
   const { search, clearFilters } = usePokemonContext();
   const { mode, toggleMode } = useThemeMode();
