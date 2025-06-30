@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokémon Explorer - Litsight Challenge
 
-## Getting Started
+¡Bienvenido a Pokémon Explorer! Esta es una Pokédex interactiva desarrollada como desafío técnico para Litsight. Permite explorar los 151 Pokémon de la primera generación, ver sus detalles, filtrar por tipo y alternar entre vista de tabla y cuadrícula.
 
-First, run the development server:
+## 🚀 Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Ver la app desplegada en GitHub Pages](https://ImCrisam.github.io/Next_PokeApi)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📸 Captura de pantalla
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Pokédex Demo](./public/demo_screenshot.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧩 Características principales
 
-## Learn More
+- **Consumo de la PokéAPI**: Obtiene los 151 Pokémon y sus detalles desde [pokeapi.co](https://pokeapi.co/).
+- **Vista en tabla**: Ordena, filtra y pagina usando Material UI DataGrid.
+- **Vista en cuadrícula**: Tarjetas responsivas con imagen, nombre, número y tipos.
+- **Modal de detalles**: Al hacer clic en cualquier Pokémon, muestra toda su información y estadísticas.
+- **Filtrado por tipo**: Selector visual y multiselección de tipos.
+- **Resaltado de estadísticas**: Las estadísticas más altas se resaltan en verde y las más bajas en rojo.
+- **100% en el cliente**: Todo el procesamiento de datos, filtros y ordenamientos es local.
+- **UI moderna**: Inspirada en la saga Pokémon, con fuentes y colores personalizados.
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Instalación y uso local
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clona el repositorio:
+   ```sh
+   git clone https://github.com/ImCrisam/Next_PokeApi.git
+   cd Next_PokeApi
+   ```
+2. Instala las dependencias:
+   ```sh
+   npm install
+   ```
+3. Inicia el servidor de desarrollo:
+   ```sh
+   npm run dev
+   ```
+4. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Despliegue en GitHub Pages
 
-## Deploy on Vercel
+1. Construye el proyecto:
+   ```sh
+   npm run build
+   ```
+2. Despliega:
+   ```sh
+   npm run deploy
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> **Nota:** El despliegue en GitHub Pages requiere que la carpeta `out` esté generada por `next export` y que el repo esté público.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Tecnologías usadas
+- [React](https://react.dev/)
+- [Next.js](https://nextjs.org/)
+- [Material UI](https://mui.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [PokéAPI](https://pokeapi.co/)
+
+## 📄 Estructura del proyecto
+
+- `/src/app/component/` — Componentes reutilizables (modals, pickers, etc.)
+- `/src/app/grid/` — Componentes de la vista en cuadrícula
+- `/src/app/table/` — Componentes de la vista en tabla
+- `/src/app/context/` — Contexto global y hooks
+- `/src/app/types/` — Tipos TypeScript
+- `/src/app/utils/` — Utilidades y helpers
+
+## ✨ Autor
+- [ImCrisam](https://github.com/ImCrisam)
+
+---
+
+¡Gracias por revisar este proyecto! Si tienes feedback o sugerencias, no dudes en abrir un issue o un pull request.

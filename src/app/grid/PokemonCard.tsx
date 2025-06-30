@@ -15,8 +15,11 @@ type Props = {
 
 export function PokemonCard({ pokemon, onClick }: Props) {
   const { getTypeGlassBackground, types } = usePokemonContext();
-  
-  const background = getTypeGlassBackground(pokemon.types, { deg: 135, opacity: 80 });
+
+  const background = getTypeGlassBackground(pokemon.types, {
+    deg: 135,
+    opacity: 80,
+  });
   return (
     <Box
       onClick={() => onClick(pokemon)}
@@ -44,25 +47,7 @@ export function PokemonCard({ pokemon, onClick }: Props) {
           p: 2,
         }}
       >
-        <Box>
-          {pokemon.sprite_front_female && (
-            <Image
-              src={pokemon.sprite_front_female ?? "/placeholder.png"}
-              alt={pokemon.name}
-              width={96}
-              height={96}
-              style={{ objectFit: "contain" }}
-            />
-          )}
-
-          <Image
-            src={pokemon.sprite_front_default ?? "/placeholder.png"}
-            alt={pokemon.name}
-            width={96}
-            height={96}
-            style={{ objectFit: "contain" }}
-          />
-        </Box>
+        {" "}
         <Typography
           variant="subtitle1"
           sx={{
@@ -70,10 +55,23 @@ export function PokemonCard({ pokemon, onClick }: Props) {
             textTransform: "capitalize",
             mt: 1,
             fontWeight: 600,
+            fontSize: "1.5rem",
+            color: "#1f2937",
+            fontFamily:
+              "Pokemon Hollow, Pokemon Solid, Arial, Helvetica, sans-serif",
           }}
         >
           {pokemon.name}
         </Typography>
+        <Box>
+          <Image
+            src={pokemon.sprite_official_artwork_default ?? "/placeholder.png"}
+            alt={pokemon.name}
+            width={96}
+            height={96}
+            style={{ objectFit: "contain" }}
+          />
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -83,7 +81,11 @@ export function PokemonCard({ pokemon, onClick }: Props) {
           }}
         >
           {pokemon.types.map((t) => (
-            <ChipType key={t.type.name} name={t.type.name} color = {types.get(t.type.name)?.color??"#e5e7eb" } />
+            <ChipType
+              key={t.type.name}
+              name={t.type.name}
+              color={types.get(t.type.name)?.color ?? "#e5e7eb"}
+            />
           ))}
         </Box>
       </CardContent>

@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-
+const isProd = process.env.NODE_ENV === 'production';
 const nextConfig: NextConfig = {
 
   images: {
@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
     unoptimized: true, 
   },
   output: 'export',
+  basePath: isProd ? '/Next_PokeApi' : '',
+  assetPrefix: isProd ? '/Next_PokeApi/' : '',
 };
 
 export default nextConfig;

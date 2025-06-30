@@ -14,8 +14,8 @@
 
 body {
   font-family: 'Pokemon Solid', Arial, Helvetica, sans-serif;
-  background-image: image-set(url('/bg_avif.avif') type('image/avif'),
-      url('/bg_jpg.jpg') type('image/jpeg'));
+  background-image: image-set(url('/bg/bg_avif.avif') type('image/avif'),
+      url('/bg/bg_jpg.jpg') type('image/jpeg'));
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
