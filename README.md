@@ -44,14 +44,12 @@
 - [TypeScript](https://www.typescriptlang.org/)
 - [PokéAPI](https://pokeapi.co/)
 
-## 📄 Estructura del proyecto
+---
 
-- `/src/app/component/` — Componentes reutilizables (modals, pickers, etc.)
-- `/src/app/grid/` — Componentes de la vista en cuadrícula
-- `/src/app/table/` — Componentes de la vista en tabla
-- `/src/app/context/` — Contexto global y hooks
-- `/src/app/types/` — Tipos TypeScript
-- `/src/app/utils/` — Utilidades y helpers
+## 📚 Documentación técnica detallada
+
+Para una explicación técnica y arquitectura del proyecto, consulta el archivo [DOCUMENTACION_DETALLADA.md](./DOCUMENTACION_DETALLADA.md).
+
 
 ## ✨ Autor
 - [ImCrisam](https://github.com/ImCrisam)
@@ -92,3 +90,4 @@
 
 
 ¡Gracias por revisar este proyecto! Si tienes feedback o sugerencias, no dudes en abrir un issue o un pull request.
+
