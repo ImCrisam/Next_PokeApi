@@ -4,6 +4,10 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: { main: "#6363db" },
+    grey: {
+      100: "#bebebe",
+    },
+    
     text: {
       primary: '#EFF7FE',    // Color por defecto del texto principal
       secondary: '#777777',  // Color de texto secundario
@@ -13,6 +17,7 @@ const darkTheme = createTheme({
       paper: "rgba(30,41,59,0.35)",
       
     },
+
   },
 });
 

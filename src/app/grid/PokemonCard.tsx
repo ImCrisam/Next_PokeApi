@@ -7,6 +7,7 @@ import { Chip } from "@mui/material";
 import ChipType from "../_common/component/ChipType";
 import { colours, PokemonType } from "../_common/utils/colorsTypes";
 import { usePokemonContext } from "../_context/PokemonContext";
+import DescriptiosStats from "../_common/component/DescriptiosStats";
 
 type Props = {
   pokemon: Pokemon;
@@ -30,6 +31,7 @@ export function PokemonCard({ pokemon, onClick }: Props) {
         alignItems: "center",
         justifyContent: "center",
         background: background,
+        maxWidth: "100%",
       }}
     >
       <Box sx={{ position: "absolute", top: 8, left: 8 }}>
@@ -45,6 +47,7 @@ export function PokemonCard({ pokemon, onClick }: Props) {
           flexDirection: "column",
           alignItems: "center",
           p: 2,
+          width: "100%",
         }}
       >
         {" "}
@@ -88,6 +91,7 @@ export function PokemonCard({ pokemon, onClick }: Props) {
             />
           ))}
         </Box>
+        <DescriptiosStats {...pokemon} />
       </CardContent>
     </Box>
   );

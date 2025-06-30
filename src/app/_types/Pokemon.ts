@@ -1,4 +1,6 @@
-export interface Pokemon {
+import { StatName } from "./Stats";
+
+export interface Pokemon extends PokemonStats {
   id: number;
   name: string;
   base_experience: number;
@@ -35,15 +37,6 @@ export interface Pokemon {
   cry_latest: string | null;
   cry_legacy: string | null;
 
-  // Stats aplanadas
-  hp: number;
-  attack: number;
-  defense: number;
-  special_attack: number;
-  special_defense: number;
-  speed: number;
-  stat_max:number;
-  stat_min:number;
   // Arrays originales
   abilities: {
     ability: {
@@ -59,12 +52,11 @@ export interface Pokemon {
       name: string;
       url: string;
       color: string;
-      lightColor: string; 
+      lightColor: string;
       darkColor: string;
     };
   }[];
 }
-
 
 export interface PokemonTypeInfo {
   name: string;
@@ -72,3 +64,11 @@ export interface PokemonTypeInfo {
   lightColor?: string;
   darkColor?: string;
 }
+
+export interface PokemonStats extends ProkemonStatBasic {
+  hp: number;
+  stat_max: number;
+  stat_min: number;
+}
+
+export type ProkemonStatBasic = Record<StatName, number>
