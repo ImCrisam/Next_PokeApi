@@ -1,16 +1,12 @@
 'use client'
 
-import { useState } from "react";
-import ModalComponent from "./component/Modal";
+
 import PokemonTable from "./table/PokemonTable";
 import BottomDrawer from "./component/BottomDrawer";
 import { usePokemonContext } from "./context/PokemonContext";
 import { PokemonCard } from "./grid/PokemonCard";
-import DebouncedSlider from "./component/DebouncedSlider";
-import { Box, Paper, styled } from "@mui/material";
-import PokemonDetailCard from "./grid/PokemonDetailCard";
-import PokemonCryPlayer from "./component/PokemonCryPlayer";
-import { Pokemon } from "./types/Pokemon";
+import { Box } from "@mui/material";
+
 import MasonryGrid from "./grid/MasonryGrid";
 import Header from "./component/Header";
 import PokemonDetailModal from "./component/PokemonDetailModal";
@@ -30,6 +26,23 @@ export default function Home() {
         paddingBlock: "2rem",
         paddingInline: "2rem"
       }}>
+        <style>{`
+          @font-face {
+            font-family: 'Pokemon Solid';
+            src: url('/fonts/Pokemon Solid.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+          }
+          @font-face {
+            font-family: 'Pokemon Hollow';
+            src: url('/fonts/Pokemon Hollow.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+          }
+          body {
+            background-image: image-set(url('/bg/bg_avif.avif') type('image/avif'), url('/bg/bg_jpg.jpg') type('image/jpeg'));
+          }
+        `}</style>
       <Header />
       {/* <DebouncedSlider onChange={function (value: number): void {
         throw new Error("Function not implemented.");

@@ -1,6 +1,5 @@
 body {
-  background-image: image-set(url('${basePath}/bg_avif.avif') type('image/avif'),
-      url('${basePath}/bg_jpg.jpg') type('image/jpeg'));
+  font-family: 'Pokemon Solid', Arial, Helvetica, sans-serif;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

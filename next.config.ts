@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
-
   images: {
     domains: ["raw.githubusercontent.com"],
-    unoptimized: true, 
+    unoptimized: true,
   },
   output: 'export',
   basePath: isProd ? '/Next_PokeApi' : '',
