@@ -6,6 +6,7 @@ export type StatDescription = {
 };
 export interface StatDescriptionPokemon extends StatDescription{
   tier:number
+  type:StatType
 }
 
 export type StatName = typeof statNames[number];

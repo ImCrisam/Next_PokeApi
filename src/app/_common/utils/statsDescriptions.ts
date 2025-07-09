@@ -1,7 +1,7 @@
 import { countDescriptiosByStats, StatDescriptionPokemon, StatDescriptions, StatName, StatType } from "../../_types/Stats";
 
 export const statDescriptions: StatDescriptions = {
-  ranges: [50, 80],
+  ranges: [40, 80],
   stats: {
     attack: {
       positive: {
@@ -167,16 +167,19 @@ export const getDescriptionStats = ({type, value, names}:propsgetDescriptionStat
 
   if(!names.length )return []
 
-  const allDescripsions = names.map((name)=>( statDescriptions.stats[name]))
-  const ranges = statDescriptions.ranges
-  const tier = ranges.reduce((_, item:number, index)=>(
-    value>item ? index :index+1
-  ))
-
+  const allDescripsions = names.map((name) => statDescriptions.stats[name]);
+  const ranges = statDescriptions.ranges;
+  let tier = ranges.reduce((_, item: number, index) => (value > item ? index : index + 1), 0);
+  console.log({tier, value});
+  
+  if (type === "negative") {
+    tier = 4 - tier;
+  }
   
   return allDescripsions.map((stat) => ({
   ...stat[type][tier as countDescriptiosByStats],
-  tier
+  tier,
+  type
 }));
 
 }
